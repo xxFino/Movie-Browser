@@ -1,9 +1,10 @@
+import { HomePage } from "./feature/HomePage";
 
 
 function App() {
   return (
 <>
-<div>Hello!</div>
+<HomePage/>
 </>
   );
 }
