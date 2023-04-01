@@ -1,23 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from '../reportWebVitals';
-import { Normalize } from 'styled-normalize';
-import { Provider } from 'react-redux';
-import { GlobalStyle } from './GlobalStyle';
-import { ThemeProvider } from 'styled-components';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Normalize } from "styled-normalize";
+import { GlobalStyle } from "./core/GlobalStyle";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <Provider>
-    <ThemeProvider >
-      <App />
-      <Normalize/>
-      <GlobalStyle />
-      </ThemeProvider>
-    </Provider>
+    <GlobalStyle />
+    <Normalize />
+    <App />
   </React.StrictMode>
 );
 
