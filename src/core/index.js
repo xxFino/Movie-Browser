@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from '../reportWebVitals';
 import { Normalize } from 'styled-normalize';
+import { Provider } from 'react-redux';
+import { GlobalStyle } from './GlobalStyle';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 root.render(
   <React.StrictMode>
-    <Normalize/>
-    <App />
+     <Provider store={store}>
+      <App />
+      <Normalize/>
+      <GlobalStyle />
+    </Provider>
   </React.StrictMode>
 );
 
