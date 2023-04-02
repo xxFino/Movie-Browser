@@ -1,23 +1,48 @@
-import { Content, TileMovie, Wrapper } from "./styled";
+import {
+  Box,
+  Content,
+  Date,
+  Description,
+  Images,
+  Name,
+  Paragraph,
+  Rating,
+  Tag,
+  Text,
+  TileMovie,
+  Title,
+  Wrapper,
+} from "./styled";
+import { ReactComponent as Icon } from "../../../core/icon/Vector.svg";
 
-export const HomePage = ({movies}) => {
-
+export const HomePage = ({ movies }) => {
   return (
     <Content>
-      <h2>Popular movies</h2>
-    <Wrapper>
-      {movies.map(({ id,original_title,overview }) => {
-        return(
-          <TileMovie key={id}>
-          <li>{original_title}</li>
-          <div>
-            <li>{overview}</li>
-          </div>
-        </TileMovie>
-        );
-       
-      })}
-    </Wrapper>
+      <Title>Popular movies</Title>
+      <Wrapper>
+        {movies.map(({ id, title, vote_average, imageUrl, vote_count,release_date}) => {
+          return (
+            <TileMovie key={id}>
+              <Box>
+              <Images src={imageUrl} alt="Movie Poster" />
+              </Box>
+              <Description>
+                <Name>{title}</Name>
+                <Date>{release_date}</Date>
+              </Description>
+              <Description>
+              <Tag>tagi</Tag>
+              </Description>
+              <Rating>
+                <Icon/>
+                <Text>{vote_average}</Text>
+                <Paragraph>{vote_count} votes </Paragraph>
+                <p>{}</p>
+              </Rating>
+            </TileMovie>
+          );
+        })}
+      </Wrapper>
     </Content>
   );
 };
