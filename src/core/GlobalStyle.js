@@ -15,5 +15,7 @@ html {
 body {
    font-family: 'Lato', sans-serif;
    font-style: normal;
+   word-break: break-word;
+
 }
 `
