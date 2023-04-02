@@ -1,10 +1,9 @@
-import { HomePage } from "./feature/HomePage";
-
+import { Pages } from "./feature/Pages";
 
 function App() {
   return (
 <>
-<HomePage/>
+<Pages/>
 </>
   );
 }
