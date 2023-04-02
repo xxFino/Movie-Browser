@@ -13,7 +13,7 @@ html {
 }
 
 body {
-   font-family: 'Lato', sans-serif;
-   font-style: normal;
+   font-family: 'Poppins', sans-serif;
+   font-style:normal
 }
-`
+`;
