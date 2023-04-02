@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 export const Content = styled.section`
   margin: 0 auto;
-  max-width: 1368px;
-  height: 1391px;
-  left: 276px;
+ max-width: 1368px;
   margin-top: 150px;
-
+  display: grid;
+  justify-content: space-between;
   @media (max-width: 1100px) {
-    width: 90vw;
-  }
+    justify-content: space-around
+}
 `;
+
 export const Wrapper = styled.div`
   margin: 0 auto;
   display: grid;
@@ -20,8 +20,9 @@ export const Wrapper = styled.div`
 
   @media (max-width: 1100px) {
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap:16px
   }
-  @media (max-width: 768px) {
+  @media (max-width: 798px) {
     grid-template-columns: 1fr 1fr;
   }
   @media (max-width: 490px) {
@@ -42,7 +43,6 @@ export const TileMovie = styled.div`
   flex-wrap: wrap;
   align-items: start;
   max-width: 324px;
-  //height: 650px;
   background: #ffffff;
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
@@ -50,12 +50,15 @@ export const TileMovie = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: stretch;
+  @media (max-width: 490px) {
+
+    }
 `;
 
 export const Images = styled.img`
   max-width: 292px;
   max-height: 434px;
-  width: 100vw;
+  width: 100%;
   border-radius: 5px;
 `;
 export const Description = styled.div`
@@ -111,8 +114,8 @@ export const Tag = styled.div`
   border-radius: 5px;
 `;
 export const Box = styled.div`
- width: 292px;
- height: 434px;
+ max-width: 292px;
+ max-height: 434px;
  display: flex;
 `;
 export const styleIcon = (Icon) => styled(Icon)`
