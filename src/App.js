@@ -1,9 +1,9 @@
-
+import { Pages } from "./feature/Pages";
 
 function App() {
   return (
 <>
-<div>Hello!</div>
+<Pages/>
 </>
   );
 }
