@@ -13,13 +13,10 @@ import {
   StyledVideoIcon,
   Title,
 } from "./styled";
-import { NavBar, NavItem, NavList, StyledNavLink } from "./styled";
-
 
 export const NavigationBar = () => {
   return (
     <HashRouter>
-
       <Header>
         <NavBar>
           <NavList>
@@ -39,19 +36,6 @@ export const NavigationBar = () => {
           <SearchBar />
         </NavBar>
       </Header>
-
-      <NavBar>
-        <StyledNavLink to="/movie-list">Movies Browser</StyledNavLink>
-        <NavList>
-          <NavItem>
-            <StyledNavLink to="/movie-list">MOVIES</StyledNavLink>
-          </NavItem>
-          <NavItem>
-            <StyledNavLink to="/people">PEOPLE</StyledNavLink>
-          </NavItem>
-        </NavList>
-        <SearchBar />
-      </NavBar>
       <Switch>
         <Route path="/movie-list/">
           <MovieList />
@@ -71,3 +55,4 @@ export const NavigationBar = () => {
       </Switch>
     </HashRouter>
   );
+};
