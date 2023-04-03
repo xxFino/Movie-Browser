@@ -40,19 +40,19 @@ export const Title = styled.h2`
   line-height: 1.2;
   margin-bottom: 24px;
   @media (max-width: 1300px) {
-  font-size: 32px;
+    font-size: 32px;
 
     margin-left: 24px;
-    margin-bottom:18px;
+    margin-bottom: 18px;
   }
   @media (max-width: 776px) {
     margin-left: 16px;
-    margin-bottom:16px;
-    font-size:24px;
+    margin-bottom: 16px;
+    font-size: 24px;
   }
   @media (max-width: 480px) {
     font-size: 18px;
-    margin-bottom:12px;
+    margin-bottom: 12px;
   }
 `;
 
@@ -74,9 +74,9 @@ export const TileMovie = styled.div`
     grid-template-columns: 2fr 3fr;
   }
 
-@media (max-width: 480px) {
-  width: 288px;
-height: 201px;
+  @media (max-width: 480px) {
+    width: 288px;
+    height: 201px;
   }
 `;
 
@@ -92,6 +92,10 @@ export const Images = styled.img`
 `;
 export const Description = styled.div`
   margin-top: 16px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  margin-left: -16px;
   @media (max-width: 480px) {
     margin-top: 0;
   }
@@ -133,9 +137,11 @@ export const Date = styled.p`
   font-size: 16px;
   line-height: 1.5;
   display: flex;
+  margin-top: 8px;
+  margin-bottom: 8px;
   @media (max-width: 480px) {
     font-size: 13px;
-    margin-bottom:0px ;
+    margin-bottom: 0px;
   }
 `;
 export const Rating = styled.div`
@@ -144,25 +150,37 @@ export const Rating = styled.div`
   padding: 0px;
   gap: 12px;
   margin-bottom: -8px;
+  margin-top: 40px;
   @media (max-width: 480px) {
-  gap:8px;
+    gap: 8px;
   }
 `;
-export const Tag = styled.div`
+export const ContentTags = styled.div`
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+`;
+export const TagBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+export const TagTile = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 8px 16px;
-  margin-top: -24px;
-  margin-bottom: 40px;
-  gap: 10px;
-  width: 77px;
+  gap: 12px;
   height: 36px;
   background: #e4e6f0;
   border-radius: 5px;
   font-size: 14px;
+  align-items: center;
+
   @media (max-width: 480px) {
-    max-width: 68px;
     max-height: 19px;
     font-size: 13px;
     margin: 8px 0 8px;
@@ -172,17 +190,17 @@ export const Box = styled.div`
   max-width: 292px;
   max-height: 434px;
   display: flex;
-    @media (max-width: 480px) {
-      width: 114px;
-      height: 169px;
-    }
+  @media (max-width: 480px) {
+    width: 114px;
+    height: 169px;
+  }
 `;
 export const styleIcon = (Icon) => styled(Icon)`
   height: 24px;
   width: 24px;
   @media (max-width: 480px) {
     height: 16px;
-  width: 16px;
+    width: 16px;
   }
 `;
 export const ContentBox = styled.div`
@@ -190,4 +208,7 @@ export const ContentBox = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   margin-left: 16px;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
