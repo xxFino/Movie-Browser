@@ -1,10 +1,12 @@
+import { NavigationBar } from "./feature/NavigationBar";
 import { Pages } from "./feature/Pages";
 
 function App() {
   return (
-<>
-<Pages/>
-</>
+  <>
+   <NavigationBar />
+   <Pages />
+  </>
   );
 }
 

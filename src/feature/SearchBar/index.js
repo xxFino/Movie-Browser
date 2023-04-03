@@ -10,3 +10,10 @@ export const SearchBar = () => {
         </Form>
     )
 }
+
+export const SearchBar = () => {
+    return (
+        <>
+        </>
+    )
+}
