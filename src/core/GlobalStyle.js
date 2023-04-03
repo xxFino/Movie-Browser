@@ -13,9 +13,11 @@ html {
 }
 
 body {
-   font-family: 'Lato', sans-serif;
-   font-style: normal;
-   word-break: break-word;
+
+
+
+   font-family: 'Poppins', sans-serif;
+   font-style:normal
 
 }
-`
+`;
