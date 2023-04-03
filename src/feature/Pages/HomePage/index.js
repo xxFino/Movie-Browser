@@ -1,6 +1,7 @@
 import {
   Box,
   Content,
+  ContentBox,
   Date,
   Description,
   Images,
@@ -26,6 +27,7 @@ export const HomePage = ({ movies }) => {
               <Box>
               <Images src={imageUrl} alt="Movie Poster" />
               </Box>
+              <ContentBox>
               <Description>
                 <Name>{title}</Name>
                 <Date>{release_date}</Date>
@@ -39,6 +41,7 @@ export const HomePage = ({ movies }) => {
                 <Paragraph>{vote_count} votes </Paragraph>
                 <p>{}</p>
               </Rating>
+              </ContentBox>
             </TileMovie>
           );
         })}
