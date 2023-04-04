@@ -31,7 +31,7 @@ export const MovieListWrapper = styled.div`
 export const MoviePageName = styled.h2`
   font-weight: 600;
   font-size: 36px;
-  line-height: 1.2;
+  line-height: 1.3;
   margin-bottom: 24px;
   @media (max-width: 1300px) {
     font-size: 32px;
