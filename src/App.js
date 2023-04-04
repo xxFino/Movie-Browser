@@ -1,5 +1,5 @@
 import { NavigationBar } from "./feature/NavigationBar";
-import { Pages } from "./feature/Pages";
+import { Pages } from "./feature/Content/Pages";
 
 function App() {
   return (

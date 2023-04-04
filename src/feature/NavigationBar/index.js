@@ -1,27 +1,41 @@
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import { MovieList } from "../MovieList";
-import { MoviePage } from "../MoviePage";
+import { MovieList } from "../Movie/MovieList";
+import { MoviePage } from "../Movie/MoviePage";
 import { People } from "../People";
 import { Profile } from "../Profile";
 import { SearchBar } from "../SearchBar";
-import { NavBar, NavItem, NavList, StyledNavLink } from "./styled";
+import {
+  Header,
+  NavBar,
+  NavItem,
+  NavList,
+  StyledNavLink,
+  StyledVideoIcon,
+  Title,
+} from "./styled";
 
 export const NavigationBar = () => {
   return (
     <HashRouter>
-      <NavBar>
-        <StyledNavLink to="/movie-list">Movies Browser</StyledNavLink>
-        <NavList>
-          <NavItem>
-            <StyledNavLink to="/movie-list">MOVIES</StyledNavLink>
-          </NavItem>
-          <NavItem>
-            <StyledNavLink to="/people">PEOPLE</StyledNavLink>
-          </NavItem>
-        </NavList>
-        <SearchBar />
-      </NavBar>
-
+      <Header>
+        <NavBar>
+          <NavList>
+            <Title>
+              <StyledNavLink to="/movie-list">
+                <StyledVideoIcon />
+                Movies Browser
+              </StyledNavLink>
+            </Title>
+            <NavItem>
+              <StyledNavLink to="/movie-list">MOVIES</StyledNavLink>
+            </NavItem>
+            <NavItem>
+              <StyledNavLink to="/people">PEOPLE</StyledNavLink>
+            </NavItem>
+          </NavList>
+          <SearchBar />
+        </NavBar>
+      </Header>
       <Switch>
         <Route path="/movie-list/">
           <MovieList />

@@ -1,6 +1,0 @@
-export const MovieList = () => {
-    return (
-<>
-</>
-    );
-};
