@@ -12,6 +12,7 @@ import {
   MovieListWrapper,
 } from "./styled";
 import { ReactComponent as Icon } from "../../../core/icon/Vector.svg";
+import { Genres } from "./Genres";
 
 export const MovieList = ({ movies }) => {
   return (
@@ -33,6 +34,7 @@ export const MovieList = ({ movies }) => {
                 <MovieInfoBox>
                   <MoviesTitle>{title}</MoviesTitle>
                   <MovieYear>{release_date}</MovieYear>
+                  <Genres/>
                   <MovieRating>
                     <Icon />
                     <MovieListText>{vote_average}</MovieListText>
