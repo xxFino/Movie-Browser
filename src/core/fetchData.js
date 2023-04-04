@@ -14,10 +14,4 @@ export const fetchData = () =>
     });
     return moviesWithImages;
   });
-  //export const fetchMovieID = (movieId) =>
-  //axios
-    //.get(
-    //  `${BASE_URL}${movieId}?api_key=${API_KEY}`
-   // )
-   // .then((response) => response.data);
 
