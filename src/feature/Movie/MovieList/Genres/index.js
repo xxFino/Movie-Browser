@@ -10,17 +10,16 @@ export const Genres = ({ genre_ids }) => {
       setGenres(genres);
     });
   }, []);
+  
+  const filteredGenres = genres.filter((genre) => genre_ids.includes(genre.id));
 
   return (
     <MovieTagsBox>
-      {genres.map((genre) => (
+      {filteredGenres.map((genre) => (
         <MovieTags key={genre.id}>
-          <MovieTag>
-          {genre.name}
-          </MovieTag>
+          <MovieTag>{genre.name}</MovieTag>
         </MovieTags>
       ))}
     </MovieTagsBox>
   );
 };
-
