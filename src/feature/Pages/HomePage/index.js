@@ -1,31 +1,27 @@
 import {
-  Box,
-  Content,
-  ContentBox,
-  ContentTags,
-  Date,
-  Description,
-  Images,
-  Name,
-  Paragraph,
-  Rating,
-  Tag,
-  TagBox,
-  TagTile,
-  Text,
-  TileMovie,
-  Title,
-  Wrapper,
+  MovieListConteiner,
+  MovieInfoBox,
+  MovieYear,
+  MovieImage,
+  MoviesTitle,
+  MovieListParagraph,
+  MovieRating,
+  MovieTagsBox,
+  MovieTag,
+  MovieListText,
+  MovieTile,
+  MoviePageName,
+  MovieListWrapper,
+  MovieTags,
 } from "./styled";
 import { ReactComponent as Icon } from "../../../core/icon/Vector.svg";
-import { genres } from "../ganres";
-
+import { genres } from "../../MovieList/Genres/ganres";
 
 export const HomePage = ({ movies }) => {
   return (
-    <Content>
-      <Title>Popular movies</Title>
-      <Wrapper>
+    <MovieListConteiner>
+      <MoviePageName>Popular movies</MoviePageName>
+      <MovieListWrapper>
         {movies.map(
           ({
             id,
@@ -37,36 +33,31 @@ export const HomePage = ({ movies }) => {
             genre_ids,
           }) => {
             return (
-              <TileMovie key={id}>
-                <Box>
-                  <Images src={imageUrl} alt="Movie Poster" />
-                </Box>
-                <ContentBox>
-                  <Description>
-                    <Name>{title}</Name>
-                    <Date>{release_date}</Date>
-                  </Description>
-                </ContentBox>
-                <ContentTags>
-                  {genre_ids.map((genreId) => (
-                    <TagBox key={genreId}>
-                      <TagTile>
-                        {genres.find((genre) => genre.id === genreId)?.name}
-                      </TagTile>
-                    </TagBox>
-                  ))}
-                </ContentTags>
-
-                <Rating>
-                  <Icon />
-                  <Text>{vote_average}</Text>
-                  <Paragraph>{vote_count} votes </Paragraph>
-                </Rating>
-              </TileMovie>
+              <MovieTile key={id}>
+                <MovieImage src={imageUrl} alt="Movie Poster" />
+                <MovieInfoBox>
+                  <MoviesTitle>{title}</MoviesTitle>
+                  <MovieYear>{release_date}</MovieYear>
+                  <MovieTagsBox>
+                    {genre_ids.map((genreId) => (
+                      <MovieTags key={genreId}>
+                        <MovieTag>
+                          {genres.find((genre) => genre.id === genreId)?.name}
+                        </MovieTag>
+                      </MovieTags>
+                    ))}
+                  </MovieTagsBox>
+                  <MovieRating>
+                    <Icon />
+                    <MovieListText>{vote_average}</MovieListText>
+                    <MovieListParagraph>{vote_count} votes </MovieListParagraph>
+                  </MovieRating>
+                </MovieInfoBox>
+              </MovieTile>
             );
           }
         )}
-      </Wrapper>
-    </Content>
+      </MovieListWrapper>
+    </MovieListConteiner>
   );
 };
