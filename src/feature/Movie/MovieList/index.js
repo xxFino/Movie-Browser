@@ -27,6 +27,7 @@ export const MovieList = ({ movies }) => {
             imageUrl,
             vote_count,
             release_date,
+            genre_ids
           }) => {
             return (
               <MovieTile key={id}>
@@ -34,7 +35,7 @@ export const MovieList = ({ movies }) => {
                 <MovieInfoBox>
                   <MoviesTitle>{title}</MoviesTitle>
                   <MovieYear>{release_date}</MovieYear>
-                  <Genres/>
+                  <Genres genre_ids={genre_ids} />
                   <MovieRating>
                     <Icon />
                     <MovieListText>{vote_average}</MovieListText>
