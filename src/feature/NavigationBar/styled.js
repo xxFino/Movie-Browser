@@ -77,7 +77,7 @@ export const NavList = styled.ul`
   }
 
   @media (max-width: 480px) {
-    margin-top: 32px;
+    margin-top: 18px;
   }
 `;
 
