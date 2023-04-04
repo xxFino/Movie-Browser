@@ -19,4 +19,6 @@ export const fetchData = () =>
 
 
   export const fetchGenresApi = () =>
-    axios.get(`${GENRE_BASE_URL}api_key=${API_KEY}`).then((response) => response.data.genres);
+    axios
+    .get(`${GENRE_BASE_URL}api_key=${API_KEY}`)
+    .then((response) => response.data.genres);
