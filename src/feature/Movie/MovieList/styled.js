@@ -60,6 +60,11 @@ export const MovieTile = styled.div`
   padding: 16px;
   transition: opacity 1s linear 0s, transform 1s linear 0s;
   grid-template-rows: auto 1fr;
+  transition: 0.3s all;
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.03);
+  }
 
   @media (max-width: 480px) {
     min-width: 288px;
