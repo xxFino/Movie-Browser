@@ -1,5 +1,5 @@
 import { delay, call, put, takeLatest } from "redux-saga/effects";
-import { fetchMoviesApi } from "./fetchMoviesApi";
+import { fetchData } from "../../core/fetchData";
 import {
   fetchMoviesError,
   fetchMovies,
@@ -9,7 +9,7 @@ import {
 function* fetchMoviesHandler() {
   try {
     yield delay();
-    const movies = yield call(fetchMoviesApi);
+    const movies = yield call(fetchData);
     yield put(fetchMoviesSuccess(movies));
   } catch (error) {
     yield put(fetchMoviesError());
