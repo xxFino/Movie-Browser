@@ -10,6 +10,7 @@ import {
   NavItem,
   NavList,
   StyledNavLink,
+  StyledNavLinkTitle,
   StyledVideoIcon,
   Title,
 } from "./styled";
@@ -20,12 +21,10 @@ export const NavigationBar = () => {
       <Header>
         <NavBar>
           <NavList>
-            <Title>
-              <StyledNavLink to="/movie-list">
-                <StyledVideoIcon />
-                Movies Browser
-              </StyledNavLink>
-            </Title>
+            <StyledNavLinkTitle to="/movie-list">
+              <StyledVideoIcon />
+              <Title>Movies Browser</Title>
+            </StyledNavLinkTitle>
             <NavItem>
               <StyledNavLink to="/movie-list">MOVIES</StyledNavLink>
             </NavItem>
