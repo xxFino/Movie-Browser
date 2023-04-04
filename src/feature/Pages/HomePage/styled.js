@@ -91,6 +91,7 @@ export const MoviesTitle = styled.p`
   margin-bottom: 8px;
   font-weight: 500;
   word-break: break-word;
+line-height: 1.3;
   @media (max-width: 480px) {
     font-size: 16px;
     margin-top: 0px;
