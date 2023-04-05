@@ -57,6 +57,7 @@ export const NavBar = styled.nav`
   justify-content: space-between;
   color: #ffffff;
 
+
   @media (max-width: 776px) {
     grid-template-columns: auto;
     justify-content: center;
