@@ -9,7 +9,6 @@ import {
   MovieListText,
   MovieTile,
   MovieListWrapper,
-  MovieListHeader,
 } from "./styled";
 import { ReactComponent as Icon } from "../../../core/icon/Vector.svg";
 import { Genres } from "./Genres";
