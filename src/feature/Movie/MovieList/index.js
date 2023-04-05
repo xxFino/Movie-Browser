@@ -13,12 +13,13 @@ import {
 } from "./styled";
 import { ReactComponent as Icon } from "../../../core/icon/Vector.svg";
 import { Genres } from "./Genres";
+import Header from "../../../core/components/Header";
 
 export const MovieList = ({ movies }) => {
   return (
     <>
-    <MovieListHeader>Popular movies</MovieListHeader>
     <MovieListContainer>
+    <Header>Popular movies</Header>
       <MovieListWrapper>
         {movies && movies.map(
           ({
