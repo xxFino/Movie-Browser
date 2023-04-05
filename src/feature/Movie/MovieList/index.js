@@ -1,5 +1,5 @@
 import {
-  MovieListConteiner,
+  MovieListContainer,
   MovieInfoBox,
   MovieYear,
   MovieImage,
@@ -8,16 +8,17 @@ import {
   MovieRating,
   MovieListText,
   MovieTile,
-  MoviePageName,
   MovieListWrapper,
+  MovieListHeader,
 } from "./styled";
 import { ReactComponent as Icon } from "../../../core/icon/Vector.svg";
 import { Genres } from "./Genres";
 
 export const MovieList = ({ movies }) => {
   return (
-    <MovieListConteiner>
-      <MoviePageName>Popular movies</MoviePageName>
+    <>
+    <MovieListHeader>Popular movies</MovieListHeader>
+    <MovieListContainer>
       <MovieListWrapper>
         {movies && movies.map(
           ({
@@ -47,6 +48,7 @@ export const MovieList = ({ movies }) => {
           }
         )}
       </MovieListWrapper>
-    </MovieListConteiner>
+    </MovieListContainer>
+    </>
   );
 };

@@ -18,7 +18,7 @@ import {
 export const NavigationBar = () => {
   return (
     <HashRouter>
-      <Header>
+      //<Header>
         <NavBar>
           <NavList>
             <StyledNavLinkTitle to="/movie-list">

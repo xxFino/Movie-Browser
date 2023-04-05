@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
-export const MovieListConteiner = styled.section`
+export const MovieListHeader = styled.h2`
+margin-top:56px;
+font-size:32px
+`;
+
+export const MovieListContainer = styled.section`
   margin: 0 auto;
   max-width: 1368px;
-  margin-top:150px;
 
   @media (max-width: 1300px) {
-    margin: 0 16px 0 16px;
+    margin: 0px 16px 0 16px;
   }
 `;
 
@@ -16,6 +20,7 @@ export const MovieListWrapper = styled.div`
   gap: 24px;
   margin-top: 24px;
   margin: 0 auto;
+  margin-top:24px;
   @media (max-width: 1300px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -25,32 +30,8 @@ export const MovieListWrapper = styled.div`
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
     gap: 16px;
-    margin-top: 12px;
   }
 `;
-
-export const MoviePageName = styled.h2`
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 1.3;
-  margin-bottom: 24px;
-  @media (max-width: 1300px) {
-    font-size: 32px;
-
-    margin-left: 24px;
-    margin-bottom: 18px;
-  }
-  @media (max-width: 776px) {
-    margin-left: 16px;
-    margin-bottom: 16px;
-    font-size: 24px;
-  }
-  @media (max-width: 480px) {
-    font-size: 18px;
-    margin-bottom: 12px;
-  }
-`;
-
 export const MovieTile = styled.div`
   display: flex;
   flex-direction: column;
