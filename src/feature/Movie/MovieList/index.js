@@ -34,7 +34,7 @@ export const MovieList = ({ movies }) => {
                 <MovieImage src={imageUrl} alt="Movie Poster" />
                 <MovieInfoBox>
                   <MoviesTitle>{title}</MoviesTitle>
-                  <MovieYear>{release_date}</MovieYear>
+                  <MovieYear>{new Date(release_date).getFullYear()}</MovieYear>
                   <Genres genre_ids={genre_ids} />
                   <MovieRating>
                     <Icon />
