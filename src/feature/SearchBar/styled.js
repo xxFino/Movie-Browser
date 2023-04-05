@@ -16,10 +16,6 @@ export const Form = styled.form`
     margin: 12px;
   }
 
-  @media (max-width: 776px) {
-   
-  }
-
   @media (max-width: 480px) {
     max-width: 288px;
     height: 44px;
