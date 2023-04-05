@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MovieListContainer = styled.section`
+export const Container = styled.section`
      margin: 0 auto 0px;
     max-width: 1368px;
     margin-top: 150px;
@@ -10,7 +10,7 @@ export const MovieListContainer = styled.section`
   }
 `;
 
-export const MovieListWrapper = styled.div`
+export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px;
