@@ -1,6 +1,6 @@
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import { MovieList } from "../Movie/MovieList";
 import { MoviePage } from "../Movie/MoviePage";
+import { Movies } from "../Movie/Movies";
 import { People } from "../People";
 import { Profile } from "../Profile";
 import { SearchBar } from "../SearchBar";
@@ -37,7 +37,7 @@ export const NavigationBar = () => {
       </Header>
       <Switch>
         <Route path="/movie-list/">
-          <MovieList />
+          <Movies />
         </Route>
         <Route path="/movie-list/:id">
           <MoviePage />
