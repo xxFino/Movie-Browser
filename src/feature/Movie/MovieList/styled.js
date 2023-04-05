@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const MovieListConteiner = styled.section`
   margin: 0 auto;
   max-width: 1368px;
+  margin-top:150px;
 
   @media (max-width: 1300px) {
     margin: 0 16px 0 16px;
@@ -60,6 +61,11 @@ export const MovieTile = styled.div`
   padding: 16px;
   transition: opacity 1s linear 0s, transform 1s linear 0s;
   grid-template-rows: auto 1fr;
+  transition: 0.3s all;
+  &:hover {
+    opacity: 0.5s;
+    transform: scale(1.03);
+  }
 
   @media (max-width: 480px) {
     min-width: 288px;
