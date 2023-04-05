@@ -3,11 +3,10 @@ import styled from "styled-components";
 export const Container = styled.section`
      margin: 0 auto 0px;
     max-width: 1368px;
-    margin-top: 150px;
-
-  @media (max-width: 1300px) {
-    margin: 150px 16px 0 16px;
-  }
+    @media(max-width : 776px) 
+    {
+      margin: 120px 16px 0 16px;
+    }
 `;
 
 export const Wrapper = styled.div`
@@ -16,7 +15,7 @@ export const Wrapper = styled.div`
   gap: 24px;
   margin-top: 24px;
   margin: 0 auto;
-  margin-top:24px;
+
   @media (max-width: 1300px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -26,6 +25,7 @@ export const Wrapper = styled.div`
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
     gap: 16px;
+   
   }
 `;
 export const MovieTile = styled.div`
