@@ -9,6 +9,11 @@ export default styled.h1`
     margin: 24px 0 12px 0;
     font-size: 18px;
     margin: 0px 0 12px 0;
-
-  } ;
+  }
+  @media (max-width: 1300px) {
+    font-size: 28px;
+  }
+  @media (max-width: 776px) {
+    font-size: 24px;
+  }
 `;
