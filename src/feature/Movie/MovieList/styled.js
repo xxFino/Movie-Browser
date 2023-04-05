@@ -2,15 +2,25 @@ import styled from "styled-components";
 
 export const MovieListHeader = styled.h2`
 margin-top:56px;
-font-size:32px
+font-size:32px;
+@media (max-width: 1300px) {
+font-size:28px
+  }
+  @media (max-width: 776px) {
+font-size:24px
+  }
+  @media (max-width: 480px) {
+font-size:18px;
+  }
 `;
 
 export const MovieListContainer = styled.section`
-  margin: 0 auto;
-  max-width: 1368px;
+     margin: 0 auto 0px;
+    max-width: 1368px;
+    margin-top: 150px;
 
   @media (max-width: 1300px) {
-    margin: 0px 16px 0 16px;
+    margin: 150px 16px 0 16px;
   }
 `;
 
