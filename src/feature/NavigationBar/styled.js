@@ -5,7 +5,7 @@ import { ReactComponent as VideoIcon } from "./video.svg";
 const activeClassName = "active";
 
 export const Header = styled.header`
-  position: fixed;
+  //position: fixed;
   left: 0;
   top: 0;
   width: 100%;
