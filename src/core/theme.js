@@ -1,5 +1,5 @@
 export const theme = {
-  color: {
+ color: {
     white: "#FFFFFF",
     whisper:"#F5F5FA",
     mercury: "#E5E5E5",
