@@ -9,7 +9,7 @@ import {
 
 function* fetchMoviesHandler() {
   try {
-    yield delay(0);
+    //yield delay(0);
     const [movies, genres] = yield all([call(fetchData), call(fetchGenresApi)]);
     yield put(fetchMoviesSuccess(movies));
     yield put(fetchGenres(genres));

@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.section`
-     margin: 0 auto 0px;
-    max-width: 1368px;
-    @media(max-width : 776px) 
-    {
-      margin: 120px 16px 0 16px;
-    }
-`;
-
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -25,7 +16,6 @@ export const Wrapper = styled.div`
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
     gap: 16px;
-   
   }
 `;
 export const MovieTile = styled.div`
@@ -38,10 +28,11 @@ export const MovieTile = styled.div`
   padding: 16px;
   transition: opacity 1s linear 0s, transform 1s linear 0s;
   grid-template-rows: auto 1fr;
-  transition: 0.3s all;
+  transition: 0.3s;
   &:hover {
     opacity: 0.5s;
     transform: scale(1.03);
+    cursor: pointer;
   }
 
   @media (max-width: 480px) {
@@ -74,7 +65,7 @@ export const MoviesTitle = styled.p`
   margin-bottom: 8px;
   font-weight: 500;
   word-break: break-word;
-line-height: 1.3;
+  line-height: 1.3;
   @media (max-width: 480px) {
     font-size: 16px;
     margin-top: 0px;

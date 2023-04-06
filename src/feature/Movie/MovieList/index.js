@@ -8,13 +8,13 @@ import {
   MovieListText,
   MovieTile,
   Wrapper,
-  Container,
 } from "./styled";
 import { ReactComponent as Icon } from "../../../core/icon/Vector.svg";
 import { Genres } from "./Genres";
 import Header from "../../../core/components/Header";
+import { Container } from "../../../core/components/Container";
 
-export const MovieList = ({ movies }) => {
+export const MoviesList = ({ movies }) => {
   return (
 <Container>
   <Header>Popular movies</Header>
