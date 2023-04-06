@@ -1,5 +1,5 @@
 import { Error } from "./Error";
-import { MovieList } from "../Movie/MovieList";
+import { MoviesList } from "../Movie/MovieList";
 import { Loading } from "./Loading";
 
 export const Content = ({ status, movies }) => {
@@ -11,7 +11,7 @@ export const Content = ({ status, movies }) => {
       case "error":
         return <Error />;
       case "success":
-        return <MovieList movies={movies} />;
+        return <MoviesList movies={movies} />;
   
       default:
         throw new Error(`incorrect status: ${status}`);
