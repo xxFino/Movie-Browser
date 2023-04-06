@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.section`
-     margin: 0 auto 0px;
-    max-width: 1368px;
-    @media(max-width : 776px) 
-    {
-      margin: 120px 16px 0 16px;
-    }
-`;
-
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -42,6 +33,7 @@ export const MovieTile = styled.div`
   &:hover {
     opacity: 0.5s;
     transform: scale(1.03);
+    cursor:pointer;
   }
 
   @media (max-width: 480px) {
