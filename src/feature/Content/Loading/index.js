@@ -5,7 +5,7 @@ import { StyledSpinner, Wrapper } from "./styled";
 export const Loading = () => {
   return (
     <Container>
-      <Header>Please wait </Header>
+      <Header>Search results for </Header>
       <Wrapper>
         <StyledSpinner />
       </Wrapper>
