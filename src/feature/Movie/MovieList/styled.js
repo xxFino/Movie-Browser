@@ -7,13 +7,13 @@ export const Wrapper = styled.div`
   margin-top: 24px;
   margin: 0 auto;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1396px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  @media (max-width: 776px) {
+  @media (max-width: 1040px) {
     grid-template-columns: 1fr 1fr;
   }
-  @media (max-width: 480px) {
+  @media (max-width: 778px) {
     grid-template-columns: 1fr;
     gap: 16px;
   }
@@ -23,7 +23,7 @@ export const MovieTile = styled.div`
   flex-direction: column;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(186, 199, 213, 0.5) 0px 4px 12px;
-  height: auto;
+  height: 100%;
   border-radius: 5px;
   padding: 16px;
   transition: opacity 1s linear 0s, transform 1s linear 0s;
@@ -35,7 +35,7 @@ export const MovieTile = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 778px) {
     min-width: 288px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -55,7 +55,7 @@ export const Description = styled.div`
   flex-wrap: nowrap;
   flex-direction: column;
   margin-left: -16px;
-  @media (max-width: 480px) {
+  @media (max-width: 778px) {
     margin-top: 0;
   }
 `;
@@ -66,7 +66,7 @@ export const MoviesTitle = styled.p`
   font-weight: 500;
   word-break: break-word;
   line-height: 1.3;
-  @media (max-width: 480px) {
+  @media (max-width: 778px) {
     font-size: 16px;
     margin-top: 0px;
     margin-bottom: 4px;
@@ -75,41 +75,47 @@ export const MoviesTitle = styled.p`
 export const MovieListParagraph = styled.p`
   margin: 0px;
   display: flex;
-  align-self: flex-end;
   color: rgb(126, 131, 154);
   flex: 0 0 auto;
-  @media (max-width: 480px) {
+  @media (max-width: 778px) {
     font-size: 12px;
   }
 `;
 export const MovieListText = styled.p`
   margin: 0px;
   display: flex;
-  align-self: flex-end;
   font-weight: 600;
-  @media (max-width: 480px) {
+  @media (max-width: 778px) {
     font-size: 12px;
   }
 `;
 export const MovieYear = styled.p`
   color: rgb(126, 131, 154);
   margin: 0px;
-  @media (max-width: 480px) {
+  @media (max-width: 778px) {
     font-size: 13px;
     margin-bottom: 0px;
   }
 `;
 export const MovieRating = styled.div`
   display: flex;
-  height: 100%;
-  gap: 12px;
   flex-wrap: wrap;
+  height: 100%;
   align-items: flex-end;
 
-  @media (max-width: 480px) {
+  @media (max-width: 778px) {
+    align-items: flex-start;
+  }
+`;
+export const MovieRatingBox = styled.div`
+display: flex;
+align-items: center;
+gap: 12px;
+@media (max-width: 778px) {
     gap: 8px;
   }
 `;
+
 export const MovieTagsBox = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -131,7 +137,7 @@ export const MovieTag = styled.div`
   font-size: 14px;
   align-items: center;
 
-  @media (max-width: 480px) {
+  @media (max-width: 778px) {
     align-self: flex-start;
     font-size: 10px;
     padding: 4px 8px;
@@ -141,7 +147,7 @@ export const styleIcon = (Icon) => styled(Icon)`
   height: 24px;
   width: 24px;
   display: flex;
-  @media (max-width: 480px) {
+  @media (max-width:778px) {
     height: 16px;
     width: 16px;
   }
@@ -150,7 +156,7 @@ export const MovieInfoBox = styled.div`
   height: 225px;
   display: flex;
   flex-direction: column;
-  @media (max-width: 480px) {
+  @media (max-width: 778px) {
     height: auto;
     margin-left: 16px;
   }
