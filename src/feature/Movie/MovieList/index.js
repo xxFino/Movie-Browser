@@ -3,9 +3,7 @@ import {
   MovieYear,
   MovieImage,
   MoviesTitle,
-  MovieListParagraph,
   MovieRating,
-  MovieListText,
   MovieTile,
   Wrapper,
   MovieRatingBox,
@@ -14,6 +12,8 @@ import { ReactComponent as Icon } from "../../../core/icon/Vector.svg";
 import { Genres } from "./Genres";
 import Header from "../../../core/components/Header";
 import { Container } from "../../../core/components/Container";
+import { Pagination } from "../../../core/components/Pagination";
+import { TextBold, TextNormal } from "../../../core/components/Text";
 
 export const MoviesList = ({ movies }) => {
   return (
@@ -43,10 +43,10 @@ export const MoviesList = ({ movies }) => {
                       <MovieRating>
                         <MovieRatingBox>
                         <Icon />
-                        <MovieListText>{vote_average}</MovieListText>
-                        <MovieListParagraph>
+                        <TextBold>{vote_average}</TextBold>
+                        <TextNormal>
                           {vote_count} votes
-                        </MovieListParagraph>
+                        </TextNormal>
                         </MovieRatingBox>
                       </MovieRating>
                     </MovieInfoBox>
@@ -55,6 +55,7 @@ export const MoviesList = ({ movies }) => {
               }
             )}
         </Wrapper>
+        <Pagination/>
         </Container>
   );
 };

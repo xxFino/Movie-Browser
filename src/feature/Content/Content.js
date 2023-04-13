@@ -7,7 +7,7 @@ export const Content = ({ status, movies }) => {
       case "initial":
         return null;
       case "loading":
-        return <p>ładowanaie</p>; ///Loading
+        return <p><Loading/></p>;
       case "error":
         return <Error />;
       case "success":
