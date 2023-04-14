@@ -6,7 +6,7 @@ import { MoviesList } from "./MoviesList";
 import { Container } from "../../core/components/Container";
 import { Error } from "../Content/Error";
 import { useEffect } from "react";
-import { MoviesList } from "./MovieList";
+import { Pagination } from "../../core/components/Pagination";
 
 export const Movies = () => {
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ export const Movies = () => {
     success: (
       <Container>
         <MoviesList status={moviesStatus} movies={movies} />
+        <Pagination />
       </Container>
     ),
     error: <Error />,
