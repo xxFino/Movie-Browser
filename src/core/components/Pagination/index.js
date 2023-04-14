@@ -8,32 +8,47 @@ import {
   Wrapper,
 } from "./styled";
 
-export const Pagination = () => {
+import { useState } from "react";
+
+export const Pagination = ({ totalResults }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(totalResults / 20);
+  const handlePrevClick = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const handleNextClick = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
   return (
     <Wrapper>
-      <Button>
-        <LeftArrow media="true" />
+      <Button disabled={currentPage === 1} onClick={handlePrevClick}>
+        <LeftArrow />
         <LeftArrow />
         <ButtonText>First</ButtonText>
       </Button>
-      <Button>
+      <Button disabled={currentPage === 1} onClick={handlePrevClick}>
         <LeftArrow />
         <ButtonText>Previous</ButtonText>
       </Button>
       <Frame>
         <TextNormal>Page</TextNormal>
-        <TextBold>1</TextBold>
+        <TextBold>{currentPage}</TextBold>
         <TextNormal>of</TextNormal>
-        <TextBold>500</TextBold>
+        <TextBold>{totalPages}</TextBold>
       </Frame>
-      <Button>
+      <Button disabled={currentPage === totalPages} onClick={handleNextClick}>
         <ButtonText>Next</ButtonText>
         <RightArrow />
       </Button>
-      <Button>
+      <Button
+        disabled={currentPage === totalPages}
+        onClick={() => setCurrentPage(totalPages)}
+      >
         <ButtonText>Last</ButtonText>
         <RightArrow />
-        <RightArrow media="true" />
+        <RightArrow />
       </Button>
     </Wrapper>
   );
