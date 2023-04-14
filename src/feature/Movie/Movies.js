@@ -3,10 +3,10 @@ import { fetchMovies, selectMovies, selectMoviesStatus } from "./moviesSlice";
 import { NoResult } from "../Content/NoResult";
 import { Loading } from "../Content/Loading";
 import { MoviesList } from "./MoviesList";
-import { Pagination } from "../../core/components/Pagination";
 import { Container } from "../../core/components/Container";
 import { Error } from "../Content/Error";
 import { useEffect } from "react";
+import { MoviesList } from "./MovieList";
 
 export const Movies = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,6 @@ export const Movies = () => {
     success: (
       <Container>
         <MoviesList status={moviesStatus} movies={movies} />
-
       </Container>
     ),
     error: <Error />,

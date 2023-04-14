@@ -1,7 +1,7 @@
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import { MoviePage } from "../Movie/MoviePage";
 import { Movies } from "../Movie/Movies";
-import { People } from "../People";
+import { People } from "../People/People";
 import { Profile } from "../Profile";
 import { SearchBar } from "../SearchBar";
 import {
