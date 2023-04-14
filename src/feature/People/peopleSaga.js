@@ -1,5 +1,5 @@
 import { all, call, delay, put, takeLatest } from "redux-saga/effects";
-import { fetchData, fetchPerson } from "../../core/fetchData";
+import {fetchPerson } from "../../core/fetchData";
 import { fetchPeople, fetchPeopleError, fetchPeopleSuccess } from "./peopleSlice";
 
 function* fetchPeopleHandler() {
