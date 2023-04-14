@@ -55,7 +55,6 @@ export const MoviesList = ({ movies }) => {
               }
             )}
         </Wrapper>
-        <Pagination/>
         </Container>
   );
 };
