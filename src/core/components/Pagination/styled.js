@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { ReactComponent as Left } from "./left.svg";
 import { ReactComponent as Right } from "./right.svg";
 

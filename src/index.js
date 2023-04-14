@@ -5,7 +5,8 @@ import reportWebVitals from "./reportWebVitals";
 import { Normalize } from "styled-normalize";
 import { GlobalStyle } from "./core/GlobalStyle";
 import { Provider } from "react-redux";
-import store from "./core/moviesStore";
+import store from "./core/store";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

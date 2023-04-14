@@ -6,6 +6,7 @@ import { NoResult } from "../Content/NoResult";
 import { Loading } from "../Content/Loading";
 import { Container } from "../../core/components/Container";
 import { Error } from "../Content/Error";
+import { Pagination } from "../../core/components/Pagination";
 
 export const People = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ export const People = () => {
     success: (
       <Container>
         <PeopleList status={peopleStatus} people={people} />
+        <Pagination/>
       </Container>
     ),
     error: <Error />,
