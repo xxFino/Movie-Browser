@@ -11,14 +11,12 @@ import {
 import { ReactComponent as Icon } from "../../../core/icon/Vector.svg";
 import { Genres } from "./Genres";
 import Header from "../../../core/components/Header";
-import { Container } from "../../../core/components/Container";
-import { Pagination } from "../../../core/components/Pagination";
 import { TextBold, TextNormal } from "../../../core/components/Text";
 
-export const MoviesList = ({ movies }) => {
-  return (
-<Container>
-  <Header>Popular movies</Header>
+export const MoviesList = ({ movies}) => {
+return(
+  <>
+<Header>Popular movies</Header>
         <Wrapper>
           {movies &&
             movies.map(
@@ -55,6 +53,6 @@ export const MoviesList = ({ movies }) => {
               }
             )}
         </Wrapper>
-        </Container>
-  );
+        </>
+)
 };

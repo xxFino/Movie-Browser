@@ -1,20 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, selectMovies, selectMoviesStatus } from "./moviesSlice";
+import { fetchPeople, selectPeople, selectPeopleStatus } from "./peopleSlice";
+import { useEffect } from "react";
+import { PeopleList } from "./PeopleList";
 import { NoResult } from "../Content/NoResult";
 import { Loading } from "../Content/Loading";
-import { MoviesList } from "./MoviesList";
 import { Container } from "../../core/components/Container";
 import { Error } from "../Content/Error";
-import { useEffect } from "react";
-import { MoviesList } from "./MovieList";
 
-export const Movies = () => {
+export const People = () => {
   const dispatch = useDispatch();
-  const moviesStatus = useSelector(selectMoviesStatus);
-  const movies = useSelector(selectMovies);
+  const peopleStatus = useSelector(selectPeopleStatus);
+  const people = useSelector(selectPeople);
 
   useEffect(() => {
-    dispatch(fetchMovies());
+    dispatch(fetchPeople());
   }, [dispatch]);
 
   return {
@@ -22,9 +21,9 @@ export const Movies = () => {
     loading: <Loading />,
     success: (
       <Container>
-        <MoviesList status={moviesStatus} movies={movies} />
+        <PeopleList status={peopleStatus} people={people} />
       </Container>
     ),
     error: <Error />,
-  }[moviesStatus];
+  }[peopleStatus];
 };

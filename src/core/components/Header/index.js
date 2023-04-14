@@ -1,18 +1,15 @@
 import styled from "styled-components";
 
 export default styled.h2`
-  margin: 150px 0 24px 0;
+  margin-top: 56px ;
   font-weight: 600;
   font-size: 36px;
   word-break: break-word;
-  @media (max-width: 480px) {
-    margin: 166px 0 12px 0;
-    font-size: 18px;
-  }
-  @media (max-width: 1380px) {
-    font-size: 28px;
-  }
-  @media (max-width: 776px) {
+  @media (max-width: 1040px) {
     font-size: 24px;
+  }
+  @media (max-width: 778px) {
+    margin: 24px 0px 12px;
+    font-size: 18px;
   }
 `;
