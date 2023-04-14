@@ -1,14 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, selectMovies, selectMoviesStatus } from "./moviesSlice";
-<<<<<<< Updated upstream
-import { Content } from "../Content/Content";
-=======
 import { NoResult } from "../Content/NoResult";
 import { Loading } from "../Content/Loading";
 import { MoviesList } from "./MoviesList";
 import { Container } from "../../core/components/Container";
 import { Error } from "../Content/Error";
->>>>>>> Stashed changes
 import { useEffect } from "react";
 import { MoviesList } from "./MovieList";
 
