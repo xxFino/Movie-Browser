@@ -6,7 +6,6 @@ import { MoviesList } from "./MoviesList";
 import { Container } from "../../core/components/Container";
 import { Error } from "../Content/Error";
 import { useEffect } from "react";
-import { MoviesList } from "./MovieList";
 
 export const Movies = () => {
   const dispatch = useDispatch();
