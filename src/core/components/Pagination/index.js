@@ -1,3 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchMovies,
+  selectPage,
+  selectTotalPages,
+  setPage,
+} from "../../../feature/Movie/moviesSlice";
 import { TextBold, TextNormal } from "../Text";
 import {
   Button,
@@ -8,44 +15,57 @@ import {
   Wrapper,
 } from "./styled";
 
-import { useState } from "react";
+export const Pagination = () => {
+  const dispatch = useDispatch();
+  const currentPage = useSelector(selectPage) ?? 1;
+  const totalPages = useSelector(selectTotalPages);
 
-export const Pagination = ({ totalResults }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(totalResults / 20);
-  const handlePrevClick = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
+
+  const goToFirst = () => {
+    dispatch(setPage(1));
+    dispatch(fetchMovies(1));
+  };
+  const goToLast = () => {
+    dispatch(setPage(totalPages));
+    dispatch(fetchMovies(totalPages));
   };
 
-  const handleNextClick = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
+  const goToNext = () => {
+    if (currentPage < totalPages) {
+      const nextPage = currentPage + 1;
+      dispatch(setPage(nextPage));
+      dispatch(fetchMovies(nextPage));
+    }
   };
 
+  const goToPrev = () => {
+    if (currentPage > 1) {
+      dispatch(setPage(currentPage - 1));
+      dispatch(fetchMovies(currentPage - 1));
+    }
+  };
   return (
     <Wrapper>
-      <Button disabled={currentPage === 1} onClick={handlePrevClick}>
+      <Button onClick={goToFirst}disabled={currentPage === 1}>
         <LeftArrow />
         <LeftArrow />
         <ButtonText>First</ButtonText>
       </Button>
-      <Button disabled={currentPage === 1} onClick={handlePrevClick}>
+      <Button onClick={goToPrev}disabled={currentPage === 1}>
         <LeftArrow />
         <ButtonText>Previous</ButtonText>
       </Button>
       <Frame>
-        <TextNormal>Page</TextNormal>
-        <TextBold>{currentPage}</TextBold>
-        <TextNormal>of</TextNormal>
-        <TextBold>{totalPages}</TextBold>
+      <TextNormal>Page</TextNormal>
+<TextBold>{currentPage}</TextBold>
+<TextNormal>of</TextNormal>
+<TextBold>{totalPages}</TextBold>
       </Frame>
-      <Button disabled={currentPage === totalPages} onClick={handleNextClick}>
+      <Button onClick={goToNext} disabled={currentPage === totalPages}>
         <ButtonText>Next</ButtonText>
         <RightArrow />
       </Button>
-      <Button
-        disabled={currentPage === totalPages}
-        onClick={() => setCurrentPage(totalPages)}
-      >
+      <Button onClick={goToLast} disabled={currentPage === totalPages}>
         <ButtonText>Last</ButtonText>
         <RightArrow />
         <RightArrow />
@@ -53,3 +73,5 @@ export const Pagination = ({ totalResults }) => {
     </Wrapper>
   );
 };
+
+
