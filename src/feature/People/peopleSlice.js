@@ -4,32 +4,45 @@ export const peopleSlice = createSlice({
   name: "people",
   initialState: {
     people: [],
-    status: "initial",
+    totalResults: 0,
+    totalPages: 0,
+    status: null,
   },
   reducers: {
-    fetchPeople: () => ({
-      people: null,
-      status: "loading",
-    }),
-    fetchPeopleSuccess: (_, { payload: people }) => ({
-      people,
-      status: "success",
-    }),
-    fetchPeopleError: () => ({
-      people: null,
-      status: "error",
-    }),
+    fetchPeople: (state, { payload: currentPage }) => {
+      state.people = null;
+      state.currentPage = currentPage;
+      state.status = "loading";
+    },
+    fetchPeopleSuccess: (state, { payload }) => {
+      state.people = payload.people;
+      state.status = "success";
+      state.totalPages = payload.totalPages;
+      state.totalResults = payload.totalResults;
+    
+      if (payload.totalResults === 0) {
+        state.status = "noResults";
+      } else {
+        state.status = "success";
+      }
+    },
+    },
+    fetchPeopleError: (state) => {
+      state.people = null;
+      state.status = "error";
+    },
+    setPage: (state, { payload:  currentPage }) => {
+      state. currentPage =  currentPage;
+    },
   },
-});
+);
 
-export const { fetchPeopleError, fetchPeople, fetchPeopleSuccess} =
+export const { fetchPeopleError, fetchPeople, fetchPeopleSuccess,setPage} =
   peopleSlice.actions;
-const selectPeopleState = (state) => ({
-  people: state.people.people,
-  status: state.people.status,
-});
 
+export const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
+export const selectPage = (state) => selectPeopleState(state). currentPage;
+export const selectTotalPages = (state) => selectPeopleState(state).totalPages;
 export const selectPeopleStatus = (state) => selectPeopleState(state).status;
-
 export default peopleSlice.reducer;

@@ -5,36 +5,53 @@ export const moviesSlice = createSlice({
   initialState: {
     movies: [],
     genres: [],
-    status: "initial",
+    totalResults: 0,
+    totalPages: 0,
+    status: null,
   },
   reducers: {
-    fetchMovies: () => ({
-      movies: null,
-      status: "loading",
-    }),
-    fetchMoviesSuccess: (_, { payload: movies }) => ({
-      movies,
-      status: "success",
-    }),
-    fetchMoviesError: () => ({
-      movies: null,
-      status: "error",
-    }),
+    fetchMovies: (state, { payload: currentPage }) => {
+      state.movies = null;
+      state.currentPage = currentPage;
+      state.status = "loading";
+    },
+    fetchMoviesSuccess: (state, { payload }) => {
+      state.movies = payload.movies;
+      state.status = "success";
+      state.totalPages = payload.totalPages;
+      state.totalResults = payload.totalResults;
+
+      if (payload.totalResults === 0) {
+        state.status = "noResults";
+      } else {
+        state.status = "success";
+      }
+    },
+
+    fetchMoviesError: (state) => {
+      state.movies = null;
+      state.status = "error";
+    },
     fetchGenres: (state, action) => {
-      state.genres = action.payload;
+      state.genres = action.payload.genres;
+    },
+    setPage: (state, { payload: currentPage }) => {
+      state.currentPage = currentPage;
     },
   },
 });
 
-export const { fetchMoviesError, fetchMovies, fetchMoviesSuccess,fetchGenres } =
-  moviesSlice.actions;
-const selectMoviesState = (state) => ({
-  movies: state.movies.movies,
-  status: state.movies.status,
-  genres: state.movies.genres,
-});
+export const {
+  fetchMoviesError,
+  fetchMovies,
+  fetchMoviesSuccess,
+  fetchGenres,
+  setPage,
+} = moviesSlice.actions;
 
+export const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;
+export const selectPage = (state) => selectMoviesState(state).currentPage;
+export const selectTotalPages = (state) => selectMoviesState(state).totalPages;
 export const selectMoviesStatus = (state) => selectMoviesState(state).status;
-
 export default moviesSlice.reducer;
