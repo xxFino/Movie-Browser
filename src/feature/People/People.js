@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPeople, selectPeople, selectPeopleStatus } from "./peopleSlice";
+import { fetchPeople, selectPeople, selectPeopleStatus, selectTotalPages } from "./peopleSlice";
 import { useEffect } from "react";
 import { PeopleList } from "./PeopleList";
 import { NoResult } from "../Content/NoResult";
@@ -12,6 +12,8 @@ export const People = () => {
   const dispatch = useDispatch();
   const peopleStatus = useSelector(selectPeopleStatus);
   const people = useSelector(selectPeople);
+  const pages = useSelector(selectTotalPages)
+
 
   useEffect(() => {
     dispatch(fetchPeople());
@@ -23,9 +25,10 @@ export const People = () => {
     success: (
       <Container>
         <PeopleList status={peopleStatus} people={people} />
-        <Pagination/>
+        <Pagination pages={pages}/>
       </Container>
     ),
     error: <Error />,
   }[peopleStatus];
+
 };
