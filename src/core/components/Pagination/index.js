@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchMovies,
   selectPage,
   selectTotalPages,
   setPage,
@@ -23,25 +22,21 @@ export const Pagination = () => {
 
   const goToFirst = () => {
     dispatch(setPage(1));
-    dispatch(fetchMovies(1));
   };
   const goToLast = () => {
     dispatch(setPage(totalPages));
-    dispatch(fetchMovies(totalPages));
   };
 
   const goToNext = () => {
     if (currentPage < totalPages) {
       const nextPage = currentPage + 1;
       dispatch(setPage(nextPage));
-      dispatch(fetchMovies(nextPage));
     }
   };
 
   const goToPrev = () => {
     if (currentPage > 1) {
       dispatch(setPage(currentPage - 1));
-      dispatch(fetchMovies(currentPage - 1));
     }
   };
   return (
