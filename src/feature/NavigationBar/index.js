@@ -3,7 +3,7 @@ import { MoviePage } from "../Movie/MoviePage";
 import { Movies } from "../Movie/Movies";
 import { People } from "../People/People";
 import { Profile } from "../Profile";
-import { SearchBar } from "../SearchBar";
+import { SearchBar } from "./SearchBar";
 import {
   Header,
   NavBar,

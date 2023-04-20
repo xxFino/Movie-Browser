@@ -11,26 +11,25 @@ export const Wrapper = styled.div`
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 100px;
-  @media (max-width: 778px)  {
-   gap:8px;
-   margin-top: 30px;
-   margin-bottom: 30px;
+  @media (max-width: 778px) {
+    gap: 8px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 `;
 export const LeftArrow = styled(Left)`
   color: #0044cc;
-  @media (max-width: 778px)  {
+  @media (max-width: 778px) {
     width: 5px;
     height: 8px;
-}
+  }
 `;
 export const RightArrow = styled(Right)`
   color: #0044cc;
-  @media (max-width: 778px)  {
+  @media (max-width: 778px) {
     width: 5px;
     height: 8px;
-}
-
+  }
 `;
 export const Button = styled.button`
   display: flex;
@@ -71,7 +70,7 @@ export const Button = styled.button`
   }
 `;
 export const ButtonText = styled.span`
-  @media  (max-width: 778px)  {
+  @media (max-width: 778px) {
     display: none;
   }
 `;
@@ -81,10 +80,9 @@ export const Frame = styled.div`
   display: flex;
   flex-wrap: nowrap;
   gap: 8px;
-  @media(max-width: 778px){
-    gap:2px;
+  @media (max-width: 778px) {
+    gap: 2px;
     margin-left: 4px;
-  margin-right: 4px;
-
+    margin-right: 4px;
   }
 `;

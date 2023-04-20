@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { MovieTag, MovieTags, MovieTagsBox } from "../styled";
-import { fetchGenresApi } from "../../../../core/fetchData";
+import { getGenres } from "../../../../core/getData";
 
 export const Genres = ({ genre_ids }) => {
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
-    fetchGenresApi().then((genres) => {
+    getGenres().then((genres) => {
       setGenres(genres);
     });
   }, []);

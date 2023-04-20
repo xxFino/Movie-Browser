@@ -4,32 +4,56 @@ export const peopleSlice = createSlice({
   name: "people",
   initialState: {
     people: [],
-    status: "initial",
+    totalResults: 0,
+    totalPages: 0,
+    page: 1,
+    status: null,
   },
   reducers: {
-    fetchPeople: () => ({
-      people: null,
-      status: "loading",
-    }),
-    fetchPeopleSuccess: (_, { payload: people }) => ({
-      people,
-      status: "success",
-    }),
-    fetchPeopleError: () => ({
-      people: null,
-      status: "error",
-    }),
+    fetchPeople: (state, { payload: page }) => {
+      state.people = null;
+      state.page = page;
+      state.status = "loading";
+    },
+    fetchPeopleSuccess: (state, { payload }) => {
+      state.people = payload.people;
+      state.status = "success";
+      state.totalPages = payload.totalPages;
+      state.totalResults = payload.totalResults;
+
+      if (payload.totalResults === 0) {
+        state.status = "noResults";
+      } else {
+        state.status = "success";
+      }
+    },
+  },
+  fetchPeopleError: (state) => {
+    state.people = null;
+    state.status = "error";
+  },
+  setPage: (state, { payload: page }) => {
+    state.page = page;
   },
 });
 
-export const { fetchPeopleError, fetchPeople, fetchPeopleSuccess} =
+export const { fetchPeopleError, fetchPeople, fetchPeopleSuccess, setPage } =
   peopleSlice.actions;
-const selectPeopleState = (state) => ({
-  people: state.people.people,
-  status: state.people.status,
-});
-
+export const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
+export const selectPage = (state) => selectPeopleState(state).page;
+export const selectTotalPages = (state) => selectPeopleState(state).totalPages;
 export const selectPeopleStatus = (state) => selectPeopleState(state).status;
+export const selectTotalResults = (state) =>
+  selectPeopleState(state).totalResults;
+export const selectPeopleByQuery = (state, query) => {
+  const people = selectPeople(state);
 
+  if (!query || query.trim() === "") {
+    return people;
+  }
+  return people.filter(({ name }) =>
+    name.toUpperCase().includes(query.trim().toUpperCase())
+  );
+};
 export default peopleSlice.reducer;

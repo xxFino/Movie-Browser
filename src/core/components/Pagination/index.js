@@ -1,3 +1,9 @@
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectPage,
+  selectTotalPages,
+  setPage,
+} from "../../../feature/Movie/moviesSlice";
 import { TextBold, TextNormal } from "../Text";
 import {
   Button,
@@ -8,44 +14,39 @@ import {
   Wrapper,
 } from "./styled";
 
-import { useState } from "react";
-
-export const Pagination = ({ totalResults }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(totalResults / 20);
-  const handlePrevClick = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
+export const Pagination = ({ page, totalPages, onPrevClick, onNextClick }) => {
+  const goToFirst = () => {
+    onPrevClick(1);
   };
-
-  const handleNextClick = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
+  const goToLast = () => {
+    onNextClick(totalPages);
   };
 
   return (
     <Wrapper>
-      <Button disabled={currentPage === 1} onClick={handlePrevClick}>
+      <Button onClick={goToFirst} disabled={page === 1}>
         <LeftArrow />
         <LeftArrow />
         <ButtonText>First</ButtonText>
       </Button>
-      <Button disabled={currentPage === 1} onClick={handlePrevClick}>
+      <Button disabled={page === 1} onClick={() => onPrevClick(page - 1)}>
         <LeftArrow />
         <ButtonText>Previous</ButtonText>
       </Button>
       <Frame>
         <TextNormal>Page</TextNormal>
-        <TextBold>{currentPage}</TextBold>
+        <TextBold>{page}</TextBold>
         <TextNormal>of</TextNormal>
         <TextBold>{totalPages}</TextBold>
       </Frame>
-      <Button disabled={currentPage === totalPages} onClick={handleNextClick}>
+      <Button
+        disabled={page === totalPages}
+        onClick={() => onNextClick(page + 1)}
+      >
         <ButtonText>Next</ButtonText>
         <RightArrow />
       </Button>
-      <Button
-        disabled={currentPage === totalPages}
-        onClick={() => setCurrentPage(totalPages)}
-      >
+      <Button onClick={goToLast} disabled={page === totalPages}>
         <ButtonText>Last</ButtonText>
         <RightArrow />
         <RightArrow />
