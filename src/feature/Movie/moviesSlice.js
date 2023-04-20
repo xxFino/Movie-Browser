@@ -7,7 +7,7 @@ export const moviesSlice = createSlice({
     genres: [],
     totalResults: 0,
     totalPages: 0,
-    page:1,
+    page: 1,
     status: null,
   },
   reducers: {
@@ -55,6 +55,17 @@ export const selectMovies = (state) => selectMoviesState(state).movies;
 export const selectPage = (state) => selectMoviesState(state).page;
 export const selectTotalPages = (state) => selectMoviesState(state).totalPages;
 export const selectMoviesStatus = (state) => selectMoviesState(state).status;
-export const selectTotalResults = (state) =>selectMoviesState(state).totalResults;
+export const selectTotalResults = (state) =>
+  selectMoviesState(state).totalResults;
+export const selectMoviesByQuery = (state, query) => {
+  const movie = selectMovies(state);
+
+  if (!query || query.trim() === "") {
+    return movie;
+  }
+  return movie.filter(({ title }) =>
+    title.toUpperCase().includes(query.trim().toUpperCase())
+  );
+};
 
 export default moviesSlice.reducer;
