@@ -14,7 +14,7 @@ import { Container } from "../../core/components/Container";
 import { Error } from "../Content/Error";
 import { Pagination } from "../../core/components/Pagination";
 import { useLocation } from "react-router-dom";
-import searchQueryParamName from "../Movie/searchQueryParamName";
+import searchQueryParamName from "../NavigationBar/SearchBar/searchQueryParamName";
 
 export const People = () => {
   const location = useLocation();
