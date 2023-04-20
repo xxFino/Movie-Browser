@@ -1,11 +1,11 @@
 import { useHistory, useLocation } from "react-router-dom";
 import { Form, SearchInput, StyledSearchIcon } from "./styled";
-import searchQueryParamName from "../../Movie/searchQueryParamName";
+import searchQueryParamName from "./searchQueryParamName";
 
 export const SearchBar = () => {
   const location = useLocation();
   const history = useHistory();
-  const query = new URLSearchParams(location.search).get(searchQueryParamName);
+  const query = (new URLSearchParams(location.search)).get(searchQueryParamName);
 
   const onInputChange = ({ target }) => {
     const searchParams = new URLSearchParams(location.search);
@@ -22,14 +22,13 @@ export const SearchBar = () => {
     <Form>
       <StyledSearchIcon />
       <SearchInput
-        placeholder={
-          location.pathname.includes("people")
-            ? "Search for people..."
-            : "Search for movies..."
-        }
-        value={query || ""}
-        onChange={onInputChange}
-      />
+         placeholder={
+            location.pathname.includes("people")
+              ? "Search for people..."
+              : "Search for movies..."
+          }
+          value={query || ""}
+          onChange={onInputChange}/>
     </Form>
   );
 };
