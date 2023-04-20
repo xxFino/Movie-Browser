@@ -14,53 +14,39 @@ import {
   Wrapper,
 } from "./styled";
 
-export const Pagination = () => {
-  const dispatch = useDispatch();
-  const currentPage = useSelector(selectPage) ?? 1;
-  const totalPages = useSelector(selectTotalPages);
-
-
+export const Pagination = ({ page, totalPages, onPrevClick, onNextClick }) => {
   const goToFirst = () => {
-    dispatch(setPage(1));
+    onPrevClick(1);
   };
   const goToLast = () => {
-    dispatch(setPage(totalPages));
+    onNextClick(totalPages);
   };
 
-  const goToNext = () => {
-    if (currentPage < totalPages) {
-      const nextPage = currentPage + 1;
-      dispatch(setPage(nextPage));
-    }
-  };
-
-  const goToPrev = () => {
-    if (currentPage > 1) {
-      dispatch(setPage(currentPage - 1));
-    }
-  };
   return (
     <Wrapper>
-      <Button onClick={goToFirst}disabled={currentPage === 1}>
+      <Button onClick={goToFirst} disabled={page === 1}>
         <LeftArrow />
         <LeftArrow />
         <ButtonText>First</ButtonText>
       </Button>
-      <Button onClick={goToPrev}disabled={currentPage === 1}>
+      <Button disabled={page === 1} onClick={() => onPrevClick(page - 1)}>
         <LeftArrow />
         <ButtonText>Previous</ButtonText>
       </Button>
       <Frame>
-      <TextNormal>Page</TextNormal>
-<TextBold>{currentPage}</TextBold>
-<TextNormal>of</TextNormal>
-<TextBold>{totalPages}</TextBold>
+        <TextNormal>Page</TextNormal>
+        <TextBold>{page}</TextBold>
+        <TextNormal>of</TextNormal>
+        <TextBold>{totalPages}</TextBold>
       </Frame>
-      <Button onClick={goToNext} disabled={currentPage === totalPages}>
+      <Button
+        disabled={page === totalPages}
+        onClick={() => onNextClick(page + 1)}
+      >
         <ButtonText>Next</ButtonText>
         <RightArrow />
       </Button>
-      <Button onClick={goToLast} disabled={currentPage === totalPages}>
+      <Button onClick={goToLast} disabled={page === totalPages}>
         <ButtonText>Last</ButtonText>
         <RightArrow />
         <RightArrow />
@@ -68,5 +54,3 @@ export const Pagination = () => {
     </Wrapper>
   );
 };
-
-
