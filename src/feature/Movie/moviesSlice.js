@@ -6,12 +6,12 @@ export const moviesSlice = createSlice({
     movies: [],
     genres: [],
     totalResults: 0,
-    totalPages: 0,
+    totalPages: 500,
     page: 1,
     status: null,
   },
   reducers: {
-    fetchMovies: (state, { payload: page }) => {
+    fetchMovies: (state, { payload: { page } }) => {
       state.movies = null;
       state.page = page;
       state.status = "loading";

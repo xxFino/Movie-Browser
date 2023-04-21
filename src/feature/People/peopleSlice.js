@@ -27,13 +27,13 @@ export const peopleSlice = createSlice({
         state.status = "success";
       }
     },
-  },
-  fetchPeopleError: (state) => {
-    state.people = null;
-    state.status = "error";
-  },
-  setPage: (state, { payload: page }) => {
-    state.page = page;
+    fetchPeopleError: (state) => {
+      state.people = null;
+      state.status = "error";
+    },
+    setPage: (state, { payload: page }) => {
+      state.page = page;
+    },
   },
 });
 
