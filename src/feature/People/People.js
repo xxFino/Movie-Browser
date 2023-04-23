@@ -1,11 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchPeople,
-  selectPage,
   selectPeopleByQuery,
   selectPeopleStatus,
-  selectTotalPages,
-  setPage,
 } from "./peopleSlice";
 import { useEffect } from "react";
 import { PeopleList } from "./PeopleList";
