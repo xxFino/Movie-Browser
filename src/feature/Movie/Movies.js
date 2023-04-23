@@ -3,7 +3,6 @@ import {
   fetchMovies,
   selectMoviesByQuery,
   selectMoviesStatus,
-  selectTotalPages,
 } from "./moviesSlice";
 import { NoResult } from "../Content/NoResult";
 import { Loading } from "../Content/Loading";
