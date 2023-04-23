@@ -5,8 +5,8 @@ export const moviesSlice = createSlice({
   initialState: {
     movies: [],
     genres: [],
-    totalResults: 0,
-    totalPages: 500,
+    totalResults: [],
+    totalPages:[],
     page: 1,
     status: null,
   },
