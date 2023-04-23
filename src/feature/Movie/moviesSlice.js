@@ -5,13 +5,13 @@ export const moviesSlice = createSlice({
   initialState: {
     movies: [],
     genres: [],
-    totalResults: 0,
-    totalPages: 0,
+    totalResults: [],
+    totalPages:[],
     page: 1,
     status: null,
   },
   reducers: {
-    fetchMovies: (state, { payload: page }) => {
+    fetchMovies: (state, { payload: { page } }) => {
       state.movies = null;
       state.page = page;
       state.status = "loading";

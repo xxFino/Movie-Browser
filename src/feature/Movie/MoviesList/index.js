@@ -13,12 +13,23 @@ import { Genres } from "./Genres";
 import Header from "../../../core/components/Header";
 import { TextBold, TextNormal } from "../../../core/components/Text";
 import Poster from "./Poster.svg"
+import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import searchQueryParamName from "../../NavigationBar/SearchBar/searchQueryParamName";
+import { selectTotalResults } from "../moviesSlice";
 
 export const MoviesList = ({movies}) => {
+  const totalResults = useSelector(selectTotalResults);
+  const location = useLocation();
+  const query = new URLSearchParams(location.search).get(searchQueryParamName);
+
   const posterPath = `https://image.tmdb.org/t/p/w500`;
+  const title = query
+    ? `Search results for "${query}" (${totalResults})`
+    : "Popular Movies";
 return(
   <>
-<Header>Popular movies</Header>
+<Header>{title}</Header>
         <Wrapper>
           {movies &&
             movies.map(
