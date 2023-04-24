@@ -1,8 +1,6 @@
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import { MoviePage } from "../Movie/MoviePage";
 import { Movies } from "../Movie/Movies";
 import { People } from "../People/People";
-import { Profile } from "../Profile";
 import { SearchBar } from "./SearchBar";
 import {
   Header,
@@ -14,42 +12,45 @@ import {
   StyledVideoIcon,
   Title,
 } from "./styled";
+import { toActor, toMovie, toMovies, toPeople } from "./route";
+import { MoviePage } from "../Movie/MoviePage";
+import { ActorPage } from "../People/ActorPage/ActorPage";
 
-export const NavigationBar = () => {
+export const NavigationBar = ({ id }) => {
   return (
     <HashRouter>
       <Header>
         <NavBar>
           <NavList>
-            <StyledNavLinkTitle to="/movie-list">
+            <StyledNavLinkTitle to={toMovies()}>
               <StyledVideoIcon />
               <Title>Movies Browser</Title>
             </StyledNavLinkTitle>
             <NavItem>
-              <StyledNavLink to="/movie-list">MOVIES</StyledNavLink>
+              <StyledNavLink to={toMovies()}>MOVIES</StyledNavLink>
             </NavItem>
             <NavItem>
-              <StyledNavLink to="/people">PEOPLE</StyledNavLink>
+              <StyledNavLink to={toPeople()}>PEOPLE</StyledNavLink>
             </NavItem>
           </NavList>
           <SearchBar />
         </NavBar>
       </Header>
       <Switch>
-        <Route path="/movie-list/">
+        <Route path={toMovies()}>
           <Movies />
         </Route>
-        <Route path="/movie-list/:id">
+        <Route path={toMovie()}>
           <MoviePage />
         </Route>
-        <Route path="/people">
+        <Route path={toPeople()}>
           <People />
         </Route>
-        <Route path="/people/:id">
-          <Profile />
+        <Route path={toActor(":id")}>
+          <ActorPage />
         </Route>
         <Route path="/">
-          <Redirect to="movie-list" />
+          <Redirect to={toMovies()} />
         </Route>
       </Switch>
     </HashRouter>
