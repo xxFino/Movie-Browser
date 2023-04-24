@@ -1,6 +1,8 @@
 import Header from "../../../core/components/Header";
-import { Photo, Tile, Wrapper } from "./styled";
+import { Photo, Wrapper } from "./styled";
 import Poster from "../../Movie/MoviesList/Poster.svg";
+import { toActor } from "../../NavigationBar/route";
+import { Tile } from "../../../core/components/Tile";
 
 export const PeopleList = ({ people }) => {
   const profilePath = `https://image.tmdb.org/t/p/original`;
@@ -10,7 +12,9 @@ export const PeopleList = ({ people }) => {
       <Wrapper>
         {people &&
           people.map((person) => (
-            <Tile key={person.id}>
+           
+            <Tile to={toActor(person.id)} key={person.id}>
+    
               {person.profile_path ? (
                 <Photo
                   src={
