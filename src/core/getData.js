@@ -18,3 +18,24 @@ export const getGenres = () =>
   axios
     .get(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
     .then((response) => response.data.genres);
+
+
+export const getPersonData = async (personId) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/person/${personId}?api_key=${API_KEY}`);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getMovieCreditsData = async (personId) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/person/${personId}/movie_credits?api_key=${API_KEY}`);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
