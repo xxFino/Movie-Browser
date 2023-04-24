@@ -5,8 +5,8 @@ export const moviesSlice = createSlice({
   initialState: {
     movies: [],
     genres: [],
-    totalResults: [],
-    totalPages:[],
+    totalResults: 0,
+    totalPages: 500,
     page: 1,
     status: null,
   },
@@ -36,7 +36,7 @@ export const moviesSlice = createSlice({
     fetchGenres: (state, action) => {
       state.genres = action.payload.genres;
     },
-    setPage: (state, { payload: page }) => {
+     setPage: (state, { payload: page }) => {
       state.page = page;
     },
   },
