@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import rootSaga from "./rootSaga";
 import moviesReducer from "../feature/Movie/moviesSlice";
 import peopleReducer from "../feature/People/peopleSlice";
-import actorReducer from "../feature/People/ActorPage/ActorSlice";
+import actorReducer from "../feature/People/ActorPage/actorSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 
