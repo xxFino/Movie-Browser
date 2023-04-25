@@ -21,21 +21,19 @@ export const getGenres = () =>
 
 
 export const getPersonData = async (personId) => {
-  try {
     const response = await axios.get(`${BASE_URL}/person/${personId}?api_key=${API_KEY}`);
-    console.log(response.data);
     return response.data;
-  } catch (error) {
-    console.error(error);
-  }
 };
 
 export const getMovieCreditsData = async (personId) => {
-  try {
     const response = await axios.get(`${BASE_URL}/person/${personId}/movie_credits?api_key=${API_KEY}`);
     console.log(response.data);
     return response.data;
-  } catch (error) {
-    console.error(error);
-  }
 };
+export const getQueryData = async(dataName,query) => {
+  const response = await axios.get(
+    `${BASE_URL}/search/${dataName}?api_key${API_KEY}query=${query}`
+  );
+  return response.data.results;
+  }
+  

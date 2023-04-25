@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { MovieTag, MovieTags, MovieTagsBox } from "../styled";
-import { getGenres } from "../../../../core/getData";
+import { getGenres } from "../../getData";
+import { Tag, Tags, TagsBox } from "../../../feature/Movie/MovieTile/styled";
 
 export const Genres = ({ genre_ids }) => {
   const [genres, setGenres] = useState([]);
@@ -14,12 +14,12 @@ export const Genres = ({ genre_ids }) => {
   const filteredGenres = genres.filter((genre) => genre_ids.includes(genre.id));
 
   return (
-    <MovieTagsBox>
+    <TagsBox>
       {filteredGenres.map((genre) => (
-        <MovieTags key={genre.id}>
-          <MovieTag>{genre.name}</MovieTag>
-        </MovieTags>
+        <Tags key={genre.id}>
+          <Tag>{genre.name}</Tag>
+        </Tags>
       ))}
-    </MovieTagsBox>
+    </TagsBox>
   );
 };
