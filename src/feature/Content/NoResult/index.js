@@ -1,12 +1,16 @@
+import { useLocation } from "react-router-dom";
 import { Container } from "../../../core/components/Container"
 import Header from "../../../core/components/Header"
 import { NoResultImage } from "./styled";
+import searchQueryParamName from "../../NavigationBar/SearchBar/searchQueryParamName";
 
 
 export const NoResult = () => {
+    const location = useLocation();
+    const query = new URLSearchParams(location.search).get(searchQueryParamName);
     return (
         <Container>
-            <Header>Sorry, theare no results for </Header>
+            <Header>{`Sorry, theare no results for "${query}"`}</Header>
             <NoResultImage />
         </Container>
     );
