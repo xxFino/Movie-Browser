@@ -4,12 +4,12 @@ import Poster from "../../Movie/MoviesList/Poster.svg";
 import { toActor } from "../../NavigationBar/route";
 import { Tile } from "../../Movie/MovieTile/styled";
 import { useSelector } from "react-redux";
-import { selectTotalResult } from "../peopleSlice";
+import { selectTotalResults } from "../peopleSlice";
 import { useLocation } from "react-router-dom";
 import searchQueryParamName from "../../NavigationBar/SearchBar/searchQueryParamName";
 
 export const PeopleList = ({ people }) => {
-  const totalResult = useSelector(selectTotalResult);
+  const totalResult = useSelector(selectTotalResults);
   const location = useLocation();
   const query = new URLSearchParams(location.search).get(searchQueryParamName);
   const title = query
