@@ -3,9 +3,8 @@ import { Container } from "../../../core/components/Container";
 import {
   fetchActor,
   selectActor,
-  selectActorState,
   selectActorStatus,
-} from "./ActorSlice";
+} from "./actorSlice";
 import { NoResult } from "../../Content/NoResult";
 import { Loading } from "../../Content/Loading";
 import { ActorInfo } from ".";

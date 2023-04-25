@@ -2,7 +2,7 @@ import Header from "../../../core/components/Header";
 import { Photo, Wrapper } from "./styled";
 import Poster from "../../Movie/MoviesList/Poster.svg";
 import { toActor } from "../../NavigationBar/route";
-import { Tile } from "../../../core/components/Tile";
+import { Tile } from "../../Movie/MovieTile/styled";
 
 export const PeopleList = ({ people }) => {
   const profilePath = `https://image.tmdb.org/t/p/original`;
