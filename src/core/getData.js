@@ -32,8 +32,8 @@ export const getMovieCreditsData = async (personId) => {
 };
 export const getQueryData = async(dataName,query) => {
   const response = await axios.get(
-    `${BASE_URL}/search/${dataName}?api_key${API_KEY}query=${query}`
+    `${BASE_URL}/search/${dataName}?api_key=${API_KEY}&query=${query}`
   );
   return response.data.results;
-  }
+}
   
