@@ -27,7 +27,7 @@ export const Movies = () => {
   const movies = useSelector(selectMovies);
   const [searchResults, setSearchResults] = useState([]);
   const [page, setPage] = useState(1);
-  const totalPages = useSelector(selectTotalPages);
+  const totalPages = 500;
 
   useEffect(() => {
     query
@@ -49,13 +49,11 @@ export const Movies = () => {
           status={moviesStatus}
           movies={query ? searchResults : movies}
         />
-        {movies > 20 && (
-          <Pagination
-            page={page}
-            totalPages={totalPages}
-            onPageChange={onPageChange}
-          />
-        )}
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+        />
       </Container>
     ),
   }[moviesStatus];
