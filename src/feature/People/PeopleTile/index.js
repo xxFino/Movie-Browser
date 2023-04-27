@@ -1,6 +1,6 @@
 import Poster from "../../Movie/MoviesList/Poster.svg";
 import { toActor } from "../../NavigationBar/route";
-import { Photo, Tile } from "../PeopleList/styled";
+import { Tile, Image, Title } from "./styled";
 
 export const PeopleTile = ({ people }) => {
   const profilePath = `https://image.tmdb.org/t/p/original`;
@@ -11,16 +11,16 @@ export const PeopleTile = ({ people }) => {
         people.map((person) => (
           <Tile to={toActor(person.id)} key={person.id}>
             {person.profile_path ? (
-              <Photo
+              <Image
                 src={
                   person.profile_path && `${profilePath}${person.profile_path}`
                 }
                 alt=""
               />
             ) : (
-              <Photo src={Poster} alt="poster" />
+              <Image src={Poster} alt="poster" />
             )}
-            <p>{person.name}</p>
+            <Title>{person.name}</Title>
           </Tile>
         ))}
     </>
