@@ -36,7 +36,7 @@ export const moviesSlice = createSlice({
     fetchGenres: (state, action) => {
       state.genres = action.payload.genres;
     },
-     setPage: (state, { payload: page }) => {
+    setPage: (state, { payload: page }) => {
       state.page = page;
     },
   },
@@ -57,15 +57,4 @@ export const selectTotalPages = (state) => selectMoviesState(state).totalPages;
 export const selectMoviesStatus = (state) => selectMoviesState(state).status;
 export const selectTotalResults = (state) =>
   selectMoviesState(state).totalResults;
-export const selectMoviesByQuery = (state, query) => {
-  const movie = selectMovies(state);
-
-  if (!query || query.trim() === "") {
-    return movie;
-  }
-  return movie.filter(({ title }) =>
-    title.toUpperCase().includes(query.trim().toUpperCase())
-  );
-};
-
 export default moviesSlice.reducer;
