@@ -6,6 +6,7 @@ import Poster from "../../../feature/Movie/MoviesList/Poster.svg";
 
 export const MovieTile = ({ movies }) => {
   const posterPath = `https://image.tmdb.org/t/p/w500`;
+
   return (
     <>
       {movies &&
