@@ -1,11 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchPeople,
-  selectPeople,
-  selectPeopleByQuery,
-  selectPeopleStatus,
-  selectTotalPages,
-} from "./peopleSlice";
+import { fetchPeople, selectPeople, selectPeopleStatus } from "./peopleSlice";
 import { useEffect } from "react";
 import { PeopleList } from "./PeopleList";
 import { NoResult } from "../Content/NoResult";
@@ -30,7 +24,7 @@ export const People = () => {
   const totalPages = 500;
   const [searchResults, setSearchResults] = useState([]);
 
-  useEffect(() => {
+ useEffect(() => {
     query
       ? getQueryData("person", query).then(setSearchResults)
       : dispatch(fetchPeople({ page: 1 }));
@@ -57,6 +51,5 @@ export const People = () => {
         />
       </Container>
     ),
-    error: <Error />,
   }[peopleStatus];
 };
