@@ -27,7 +27,7 @@ export const Movies = () => {
   const movies = useSelector(selectMovies);
   const [searchResults, setSearchResults] = useState([]);
   const [page, setPage] = useState(1);
-  const totalPages = 500;
+  const totalPages =useSelector(selectTotalPages);
 
   useEffect(() => {
     query
