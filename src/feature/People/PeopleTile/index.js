@@ -1,4 +1,4 @@
-import Poster from "../../Movie/MoviesList/Poster.svg";
+import Poster from "./poster.png";
 import { toActor } from "../../NavigationBar/route";
 import { Tile, Image, Title } from "./styled";
 
