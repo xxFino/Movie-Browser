@@ -1,12 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import {
-  selectMoviesCast,
-  selectMoviesCrew,
-} from "./actorSlice";
+import { selectMoviesCast, selectMoviesCrew } from "./actorSlice";
 import { Title } from "../../../core/components/Title";
 import { Container } from "../../../core/components/Container";
-import { MoviesList } from "../../Movie/MoviesList";
+import { MovieTile } from "../../Movie/MovieTile";
+import { Wrapper } from "../../Movie/MoviesList/styled";
 
 export const ActorInfo = () => {
   const cast = useSelector(selectMoviesCast);
@@ -17,13 +15,17 @@ export const ActorInfo = () => {
       {cast.length > 0 && (
         <Container>
           <Title title={`Movies - cast (${cast.length})`} />
-          <MoviesList movies={cast} />
+          <Wrapper>
+            <MovieTile movies={cast} />
+          </Wrapper>
         </Container>
       )}
       {crew.length > 0 && (
         <Container>
           <Title title={`Movies - crew (${crew.length})`} />
-          <MoviesList movies={crew} />
+          <Wrapper>
+            <MovieTile movies={crew} />
+          </Wrapper>
         </Container>
       )}
     </>

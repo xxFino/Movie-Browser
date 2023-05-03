@@ -5,17 +5,15 @@ import searchQueryParamName from "./searchQueryParamName";
 export const SearchBar = () => {
   const location = useLocation();
   const history = useHistory();
-  const query = new URLSearchParams(location.search).get(searchQueryParamName);
 
   const onInputChange = ({ target }) => {
-    const searchParams = new URLSearchParams(location.search);
-
     if (target.value.trim() === "") {
-      searchParams.delete(searchQueryParamName);
+      history.push(`${location.pathname}`);
     } else {
-      searchParams.set(searchQueryParamName, target.value);
+      history.push(
+        `${location.pathname}?${searchQueryParamName}=${target.value}`
+      );
     }
-    history.push(`${location.pathname}?${searchParams.toString()}`);
   };
 
   return (
@@ -27,7 +25,11 @@ export const SearchBar = () => {
             ? "Search for people..."
             : "Search for movies..."
         }
-        value={query || ""}
+        value={
+          new URLSearchParams(location.search || "").get(
+            searchQueryParamName
+          ) || ""
+        }
         onChange={onInputChange}
       />
     </Form>

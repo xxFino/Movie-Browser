@@ -1,28 +1,29 @@
 import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
 import searchQueryParamName from "../../NavigationBar/SearchBar/searchQueryParamName";
-import {selectTotalResults } from "../moviesSlice";
 import { Wrapper } from "./styled";
 import Header from "../../../core/components/Header";
-import {MovieTile} from "../MovieTile"
+import { MovieTile } from "../MovieTile";
 import { NoResult } from "../../Content/NoResult";
 
-export const MoviesList = ({movies}) => {
-  const totalResults = useSelector(selectTotalResults);
+export const MoviesList = ({ movies }) => {
   const location = useLocation();
-  const query = new URLSearchParams(location.search).get(searchQueryParamName);
+  const query = new URLSearchParams(location.search || "").get(
+    searchQueryParamName
+  );
   const title = query
-    ? `Search results for "${query}" (${totalResults})`
+    ? `Search results for "${query}" (${movies.length})`
     : "Popular Movies";
+
   return (
     <>
-      <Header>{title}</Header>
-      {totalResults === 0 ? (
-        <NoResult />
-      ) : (
-        <Wrapper>
-          <MovieTile movies={movies} />
-        </Wrapper>
+      {movies.length === 0 && <NoResult />}
+      {movies.length > 0 && (
+        <>
+          <Header>{title}</Header>
+          <Wrapper>
+            <MovieTile movies={movies} />
+          </Wrapper>
+        </>
       )}
     </>
   );
