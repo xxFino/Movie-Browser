@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchMovies,
+  fetchMoviesSuccess,
+  selectMovieTotalPages,
+  selectMovieTotalResults,
   selectMovies,
   selectMoviesStatus,
-  selectTotalPages,
 } from "./moviesSlice";
 import { NoResult } from "../Content/NoResult";
 import { Loading } from "../Content/Loading";
@@ -27,34 +29,47 @@ export const Movies = () => {
   const movies = useSelector(selectMovies);
   const [searchResults, setSearchResults] = useState([]);
   const [page, setPage] = useState(1);
-  const totalPages =useSelector(selectTotalPages);
+  const totalPages = useSelector(selectMovieTotalPages);
+  const totalResults = useSelector(selectMovieTotalResults);
 
   useEffect(() => {
-    query
-      ? getQueryData("movie", query).then(setSearchResults)
-      : dispatch(fetchMovies({ page: 1 }));
-  }, [dispatch, query]);
+    if (query) {
+      getQueryData("movie", query, page).then((response) => {
+        setSearchResults(response.results);
+        dispatch(
+          fetchMoviesSuccess({
+            movies: response.results,
+            totalPages: response.total_pages,
+            totalResults: response.total_results,
+          })
+        );
+      });
+    } else {
+      dispatch(fetchMovies({ page }));
+    }
+  }, [dispatch, query, page]);
 
-  const onPageChange = (page) => (
-    setPage(page), dispatch(fetchMovies({ page }))
+  const onPageChange = (page, query) => {
+    setPage(page);
+    dispatch(fetchMovies({ page, query }));
+  };
+  return (
+    <>
+      {totalResults === 0 &&
+        moviesStatus !== "loading" &&
+        moviesStatus !== "error" && <NoResult />}
+      {moviesStatus === "loading" && <Loading />}
+      {moviesStatus === "error" && <Error />}
+      {moviesStatus === "success" && (
+        <Container>
+          <MoviesList movies={query ? searchResults : movies} />
+          <Pagination
+            page={page}
+            totalPages={totalPages > 500 ? 500 : totalPages}
+            onPageChange={onPageChange}
+          />
+        </Container>
+      )}
+    </>
   );
-
-  return {
-    loading: <Loading />,
-    error: <Error />,
-    noResult: <NoResult />,
-    success: (
-      <Container>
-        <MoviesList
-          status={moviesStatus}
-          movies={query ? searchResults : movies}
-        />
-        <Pagination
-          page={page}
-          totalPages={totalPages}
-          onPageChange={onPageChange}
-        />
-      </Container>
-    ),
-  }[moviesStatus];
 };

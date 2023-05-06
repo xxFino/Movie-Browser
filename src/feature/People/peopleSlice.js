@@ -5,7 +5,7 @@ export const peopleSlice = createSlice({
   initialState: {
     people: [],
     totalResults: 0,
-    totalPages: 0,
+    totalPages: 500,
     page: 1,
     status: null,
   },
@@ -20,7 +20,6 @@ export const peopleSlice = createSlice({
       state.status = "success";
       state.totalPages = payload.totalPages;
       state.totalResults = payload.totalResults;
-
       if (payload.totalResults === 0) {
         state.status = "noResults";
       } else {
@@ -42,8 +41,8 @@ export const { fetchPeopleError, fetchPeople, fetchPeopleSuccess, setPage } =
 export const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
 export const selectPage = (state) => selectPeopleState(state).page;
-export const selectTotalPages = (state) => selectPeopleState(state).totalPages;
+export const selectPeopleTotalPages = (state) => selectPeopleState(state).totalPages;
 export const selectPeopleStatus = (state) => selectPeopleState(state).status;
-export const selectTotalResults = (state) =>
+export const selectPeopleTotalResults = (state) =>
   selectPeopleState(state).totalResults;
 export default peopleSlice.reducer;

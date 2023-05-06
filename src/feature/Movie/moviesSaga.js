@@ -9,7 +9,6 @@ import {
 
 function* fetchMoviesHandler({ payload }) {
   try {
-    yield delay(1000);
     const page = payload.page;
     const query = payload.query;
     const [movies, genres] = yield all([
@@ -18,6 +17,7 @@ function* fetchMoviesHandler({ payload }) {
       call(getGenres),
     ]);
     yield put(fetchMoviesSuccess(movies));
+    yield delay(1000)
     yield put(fetchGenres(genres));
   } catch (error) {
     yield put(fetchMoviesError());
