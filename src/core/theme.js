@@ -13,9 +13,9 @@
     stormGrey: "#74788B",
   },
   breakpoint: {
-    max:1396,
-    medium:1040,
-    mobile: 778,
+    max: "1396px",
+    medium: "1040px",
+    mobile: "778px",
   },
 };
 export default theme;
