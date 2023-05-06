@@ -13,10 +13,10 @@ import {
   Title,
 } from "./styled";
 import { toActor, toMovie, toMovies, toPeople } from "./route";
-import { MoviePage } from "../Movie/MoviePage";
+import { MoviePage } from "../Movie/MoviePage/MoviePage";
 import { ActorPage } from "../People/ActorPage/ActorPage";
 
-export const NavigationBar = ({ id }) => {
+export const NavigationBar = () => {
   return (
     <HashRouter>
       <Header>
@@ -40,7 +40,7 @@ export const NavigationBar = ({ id }) => {
         <Route path={toMovies()}>
           <Movies />
         </Route>
-        <Route path={toMovie()}>
+        <Route path={toMovie(":id")}>
           <MoviePage />
         </Route>
         <Route path={toPeople()}>
