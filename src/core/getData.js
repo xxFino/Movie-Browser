@@ -19,21 +19,39 @@ export const getGenres = () =>
     .get(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
     .then((response) => response.data.genres);
 
-
 export const getPersonData = async (personId) => {
-    const response = await axios.get(`${BASE_URL}/person/${personId}?api_key=${API_KEY}`);
-    return response.data;
+  const response = await axios.get(
+    `${BASE_URL}/person/${personId}?api_key=${API_KEY}`
+  );
+  return response.data;
 };
 
 export const getMovieCreditsData = async (personId) => {
-    const response = await axios.get(`${BASE_URL}/person/${personId}/movie_credits?api_key=${API_KEY}`);
-    console.log(response.data);
-    return response.data;
+  const response = await axios.get(
+    `${BASE_URL}/person/${personId}/movie_credits?api_key=${API_KEY}`
+  );
+  console.log(response.data);
+  return response.data;
 };
-export const getQueryData = async(dataName,query) => {
+export const getQueryData = async (dataName, query) => {
   const response = await axios.get(
     `${BASE_URL}/search/${dataName}?api_key${API_KEY}query=${query}`
   );
   return response.data.results;
-  }
-  
+};
+
+export const getMoviePageDetails = async (id) => {
+  const response = await axios.get(
+    `${BASE_URL}/movie/${id}?api_key=${API_KEY}`
+  );
+
+  return response.data;
+};
+
+export const getMoviePageCredits = async (id) => {
+  const response = await axios.get(
+    `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`
+  );
+
+  return response.data;
+};
