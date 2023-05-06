@@ -46,14 +46,4 @@ export const selectTotalPages = (state) => selectPeopleState(state).totalPages;
 export const selectPeopleStatus = (state) => selectPeopleState(state).status;
 export const selectTotalResults = (state) =>
   selectPeopleState(state).totalResults;
-export const selectPeopleByQuery = (state, query) => {
-  const people = selectPeople(state);
-
-  if (!query || query.trim() === "") {
-    return people;
-  }
-  return people.filter(({ name }) =>
-    name.toUpperCase().includes(query.trim().toUpperCase())
-  );
-};
 export default peopleSlice.reducer;

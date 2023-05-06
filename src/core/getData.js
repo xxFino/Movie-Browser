@@ -3,9 +3,9 @@ import axios from "axios";
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "64dcf25583202648eae7e90e51a0966d";
 
-export const getPopularData = async (dataName, page) => {
+export const getPopularData = async (dataName, page, query) => {
   const { data } = await axios.get(
-    `${BASE_URL}/${dataName}/popular?api_key=${API_KEY}&page=${page}`
+    `${BASE_URL}/${dataName}/popular?api_key=${API_KEY}&page=${page}&query=${query}`
   );
   return {
     people: data.results,
@@ -33,12 +33,14 @@ export const getMovieCreditsData = async (personId) => {
   console.log(response.data);
   return response.data;
 };
-export const getQueryData = async (dataName, query) => {
+
+export const getQueryData = async (dataName, query, page = 1) => {
   const response = await axios.get(
-    `${BASE_URL}/search/${dataName}?api_key${API_KEY}query=${query}`
+    `${BASE_URL}/search/${dataName}?api_key=${API_KEY}&query=${query}&page=${page}`
   );
   return response.data.results;
 };
+
 
 export const getMoviePageDetails = async (id) => {
   const response = await axios.get(

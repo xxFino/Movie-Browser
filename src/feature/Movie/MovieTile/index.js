@@ -7,6 +7,7 @@ import { toMovie } from "../../NavigationBar/route";
 
 export const MovieTile = ({ movies }) => {
   const posterPath = `https://image.tmdb.org/t/p/w500`;
+
   return (
     <>
       {movies &&

@@ -8,7 +8,9 @@ import {
   Wrapper,
 } from "./styled";
 
-export const Pagination = ({ page, totalPages, onPageChange }) => {
+export const Pagination = ({ page, onPageChange }) => {
+  const totalPages = 500;
+
   const goToPrev = () => onPageChange(page - 1);
   const goToNext = () => onPageChange(page + 1);
   const goToFirst = () => onPageChange(1);

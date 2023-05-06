@@ -1,43 +1,30 @@
-import Header from "../../../core/components/Header";
-import { Photo, Wrapper } from "./styled";
-import Poster from "../../Movie/MoviesList/Poster.svg";
-import { toActor } from "../../NavigationBar/route";
-import { Tile } from "../../Movie/MovieTile/styled";
-import { useSelector } from "react-redux";
-import { selectTotalResults } from "../peopleSlice";
 import { useLocation } from "react-router-dom";
 import searchQueryParamName from "../../NavigationBar/SearchBar/searchQueryParamName";
+import { PeopleTile } from "../PeopleTile";
+import Header from "../../../core/components/Header";
+import { Wrapper } from "./styled";
+import { NoResult } from "../../Content/NoResult";
 
 export const PeopleList = ({ people }) => {
-  const totalResult = useSelector(selectTotalResults);
   const location = useLocation();
-  const query = new URLSearchParams(location.search).get(searchQueryParamName);
+  const query = new URLSearchParams(location.search || "").get(
+    searchQueryParamName
+  );
   const title = query
-    ? `Search results for "${query}" (${totalResult})`
+    ? `Search results for "${query}" (${people.length})`
     : "Popular People";
-  const profilePath = `https://image.tmdb.org/t/p/original`;
+
   return (
     <>
-      <Header>{title}</Header>
-      <Wrapper>
-        {people &&
-          people.map((person) => (
-            <Tile to={toActor(person.id)} key={person.id}>
-              {person.profile_path ? (
-                <Photo
-                  src={
-                    person.profile_path &&
-                    `${profilePath}${person.profile_path}`
-                  }
-                  alt=""
-                />
-              ) : (
-                <Photo src={Poster} alt="poster" />
-              )}
-              <p>{person.name}</p>
-            </Tile>
-          ))}
-      </Wrapper>
+      {people.length === 0 && <NoResult />}
+      {people.length > 0 && (
+        <>
+          <Header>{title}</Header>
+          <Wrapper>
+            <PeopleTile people={people} />
+          </Wrapper>
+        </>
+      )}
     </>
   );
 };
