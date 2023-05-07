@@ -6,7 +6,7 @@ export const SearchBar = () => {
   const location = useLocation();
   const history = useHistory();
 
-  const onInputChange = ({ target, page }) => {
+  const onInputChange = ({ target}) => {
     if (target.value.trim() === "") {
       history.push(`${location.pathname}`);
     } else {
