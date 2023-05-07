@@ -20,15 +20,12 @@ export const PeopleList = ({ people }) => {
 
   return (
     <>
-      {totalResults === 0 && <NoResult />}
-      {totalResults > 0 && (
         <>
           <Header>{title}</Header>
           <Wrapper>
             <PeopleTile people={people} />
           </Wrapper>
         </>
-      )}
     </>
   );
 };

@@ -19,15 +19,12 @@ export const MoviesList = ({ movies}) => {
 
   return (
     <>
-      {totalResults === 0 && <NoResult />}
-      {totalResults > 0 && (
         <>
           <Header>{title}</Header>
           <Wrapper>
             <MovieTile movies={movies} />
           </Wrapper>
         </>
-      )}
     </>
   );
 };
