@@ -87,7 +87,7 @@ export const BackdropBox = styled.div`
 export const RatingWrapper = styled.div`
 display: block;
 
-@media (max-width: 530px) {
+@media (max-width: ${({ theme }) => theme.breakpoint.max}) {
     display: flex;
 }
 `
