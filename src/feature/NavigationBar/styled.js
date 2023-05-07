@@ -6,7 +6,7 @@ const activeClassName = "active";
 
 export const Header = styled.header`
   width: 100%;
-  background: #18181b;
+  background-color: ${({theme}) => theme.color.black};
   display: flex;
   justify-content: center;
 `;
@@ -45,7 +45,7 @@ export const NavBar = styled.nav`
   grid-template-columns: auto auto;
   align-items: center;
   justify-content: space-between;
-  color: #ffffff;
+  color: ${({theme}) => theme.color.white};
 
 
   @media (max-width: 530px) {
@@ -81,7 +81,7 @@ export const NavItem = styled.li`
 `;
 
 export const StyledNavLinkTitle = styled(NavLink)`
-  color: #ffffff;
+  color: ${({theme}) => theme.color.white};
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -90,11 +90,11 @@ font-weight: 500;
 line-height: 1.3;
 
   &:hover {
-    color: #ddd;
+    color: ${({theme}) => theme.color.silver};
   }
 
   &:active {
-    color: #ffffff;
+    color: ${({theme}) => theme.color.white};
   }
   @media (max-width: 778px) {
     font-size: 13px;
@@ -104,7 +104,7 @@ line-height: 1.3;
 export const StyledNavLink = styled(NavLink).attrs(() => ({
   activeClassName,
 }))`
-  color: #ffffff;
+  color: ${({theme}) => theme.color.white};
   text-decoration: none;
   font-style: normal;
   font-size: 14px;
@@ -118,18 +118,18 @@ font-size: 10px;
     }
     
   &:hover {
-    color: #ddd;
+    color: ${({theme}) => theme.color.silver};
   }
 
   &:active {
-    color: #ffffff;
+    color: ${({theme}) => theme.color.white};
   }
 
   &.${activeClassName} {
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #ffffff;
-    border-left: 1px solid #ffffff;
-    border-right: 1px solid #ffffff;
+    border-top: 1px solid ${({theme}) => theme.color.white};
+    border-bottom: 1px solid ${({theme}) => theme.color.white};
+    border-left: 1px solid ${({theme}) => theme.color.white};
+    border-right: 1px solid ${({theme}) => theme.color.white};
     border-radius: 33px;
     padding: 8px 12px;
 
