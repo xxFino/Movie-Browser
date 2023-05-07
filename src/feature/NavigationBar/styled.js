@@ -49,6 +49,7 @@ export const StyledVideoIcon = styled(VideoIcon)`
 
 export const NavBar = styled.nav`
   margin: 0 auto;
+  margin-right: 12px;
   flex-basis: 1368px;
   min-height: 94px;
   display: grid;
@@ -66,7 +67,7 @@ export const NavBar = styled.nav`
 export const NavList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 64px;
@@ -128,11 +129,8 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     padding: 14px;
 
     @media (max-width: 480px) {
-      padding: 8px;
-    }
-
-    @media (max-width: 480px) {
       font-size: 12px;
+      padding: 8px
     }
   }
 `;
