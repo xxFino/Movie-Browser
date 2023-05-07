@@ -24,14 +24,13 @@ export const Movies = () => {
   const query = new URLSearchParams(location.search || "").get(
     searchQueryParamName
   );
-  
+
   const dispatch = useDispatch();
   const moviesStatus = useSelector(selectMoviesStatus);
   const movies = useSelector(selectMovies);
   const [searchResults, setSearchResults] = useState([]);
   const [page, setPage] = useState(1);
   const totalPages = useSelector(selectMovieTotalPages);
-  const totalResults = useSelector(selectMovieTotalResults);
 
   useEffect(() => {
     if (query) {
@@ -54,12 +53,16 @@ export const Movies = () => {
     setPage(page);
     dispatch(fetchMovies({ page, query }));
   };
+  loading: <NoResult />;
   return (
     <>
-      {totalResults === 0 && <NoResult />}
-      {moviesStatus === "loading" && <Loading />}
-      {moviesStatus === "error" && <Error />}
-      {moviesStatus === "success" && (
+      {moviesStatus === "loading" ? (
+        <Loading />
+      ) : moviesStatus === "error" ? (
+        <Error />
+      ) : query && searchResults.length === 0 ? (
+        <NoResult />
+      ) : (
         <Container>
           <MoviesList movies={query ? searchResults : movies} />
           <Pagination

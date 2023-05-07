@@ -1,4 +1,4 @@
-import { all, call, debounce, put, takeLatest } from "redux-saga/effects";
+import { all, call, put, takeLatest,delay } from "redux-saga/effects";
 import { getPopularData, getQueryData } from "../../core/getData";
 import {
   fetchPeople,
@@ -8,7 +8,7 @@ import {
 
 function* fetchPeopleHandler({ payload }) {
   try {
-  
+  yield delay(500)
     const page = payload.page;
     const query = payload.query;
     const [people] = yield all([
