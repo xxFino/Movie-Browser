@@ -1,11 +1,10 @@
-import { all, call, debounce, put, takeLatest } from "redux-saga/effects";
+import { all, call, put, takeLatest,delay } from "redux-saga/effects";
 import { getPopularData, getQueryData } from "../../core/getData";
 import {
   fetchPeople,
   fetchPeopleError,
   fetchPeopleSuccess,
 } from "./peopleSlice";
-import { delay } from "@reduxjs/toolkit/dist/utils";
 
 function* fetchPeopleHandler({ payload }) {
   try {
