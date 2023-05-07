@@ -40,8 +40,6 @@ export const getQueryData = async (dataName, query, page = 1) => {
   );
   return response.data;
 };
-
-
 export const getMoviePageDetails = async (id) => {
   const response = await axios.get(
     `${BASE_URL}/movie/${id}?api_key=${API_KEY}`

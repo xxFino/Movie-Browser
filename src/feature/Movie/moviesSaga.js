@@ -17,7 +17,6 @@ function* fetchMoviesHandler({ payload }) {
       call(getGenres),
     ]);
     yield put(fetchMoviesSuccess(movies));
-    yield delay(1000)
     yield put(fetchGenres(genres));
   } catch (error) {
     yield put(fetchMoviesError());

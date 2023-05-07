@@ -6,16 +6,15 @@ export const SearchBar = () => {
   const location = useLocation();
   const history = useHistory();
 
-  const onInputChange = ({ target }) => {
+  const onInputChange = ({ target, page }) => {
     if (target.value.trim() === "") {
       history.push(`${location.pathname}`);
     } else {
       history.push(
-        `${location.pathname}?${searchQueryParamName}=${target.value}`
+        `${location.pathname}?${searchQueryParamName}=${target.value}&page=1`
       );
     }
   };
-
   return (
     <Form>
       <StyledSearchIcon />
