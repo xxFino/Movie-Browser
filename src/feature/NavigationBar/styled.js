@@ -39,7 +39,9 @@ export const StyledVideoIcon = styled(VideoIcon)`
 
 export const NavBar = styled.nav`
   margin: 0 auto;
-  width: 1368px;
+  margin-right: 12px;
+  flex-basis: 1368px;
+
   min-height: 94px;
   display: grid;
   grid-template-columns: auto auto;
@@ -57,7 +59,7 @@ export const NavBar = styled.nav`
 export const NavList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 64px;
@@ -131,6 +133,9 @@ font-size: 10px;
     border-left: 1px solid ${({theme}) => theme.color.white};
     border-right: 1px solid ${({theme}) => theme.color.white};
     border-radius: 33px;
+    @media (max-width: 480px) {
+      font-size: 12px;
+      padding: 8px
     padding: 8px 12px;
 
     @media (max-width: 778px) {
