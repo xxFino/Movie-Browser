@@ -3,6 +3,7 @@ import { Genres } from "../../../core/components/Genres";
 import { TextBold, TextNormal } from "../../../core/components/Text";
 import { Image, InfoBox, Rating, RatingBox, Tile, Title, Year } from "./styled";
 import Poster from "../../../feature/Movie/MoviesList/Poster.svg";
+import { toMovie } from "../../NavigationBar/route";
 
 export const MovieTile = ({ movies }) => {
   const posterPath = `https://image.tmdb.org/t/p/w500`;
@@ -12,7 +13,7 @@ export const MovieTile = ({ movies }) => {
       {movies &&
         movies.map((movie) => {
           return (
-            <Tile key={movie.id}>
+            <Tile to={toMovie(movie.id)} key={movie.id}>
               {movie.poster_path ? (
                 <Image
                   src={movie.poster_path && `${posterPath}${movie.poster_path}`}
