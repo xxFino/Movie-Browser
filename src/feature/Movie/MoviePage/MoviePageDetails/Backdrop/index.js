@@ -8,6 +8,7 @@ import {
   Rate,
   RateOn,
   RatingBox,
+  RatingWrapper,
   Votes,
 } from "./styled";
 import { backdropImage } from "./image";
@@ -22,12 +23,14 @@ export const Backdrop = ({ backdrop_path, title, rate, votes }) => {
         />
         <BackdropBox>
           <BackdropTitle>{title}</BackdropTitle>
-          <RatingBox>
+         <RatingWrapper>
+         <RatingBox>
             <Icon display="true" />
             <Rate>{rate.toFixed(1)}</Rate>
             <RateOn>/ 10</RateOn>
           </RatingBox>
           <Votes>{votes} votes</Votes>
+         </RatingWrapper>
         </BackdropBox>
       </BackdropContainer>
     </BackdropWrapper>
