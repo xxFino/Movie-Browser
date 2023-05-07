@@ -8,6 +8,7 @@ import {
 } from "./moviesSlice";
 
 function* fetchMoviesHandler({ payload }) {
+  yield delay(500)
   try {
     const page = payload.page;
     const query = payload.query;

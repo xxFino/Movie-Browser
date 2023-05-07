@@ -55,10 +55,13 @@ export const People = () => {
   };
   return (
     <>
-      {totalResults === 0 && <NoResult />}
-      {peopleStatus === "loading" && <Loading />}
-      {peopleStatus === "error" && <Error />}
-      {peopleStatus === "success" && (
+      {peopleStatus === "loading" ? (
+        <Loading />
+      ) : peopleStatus === "error" ? (
+        <Error />
+      ) : query && searchResults.length === 0 ? (
+        <NoResult />
+      ) : (
         <Container>
           <PeopleList people={query ? searchResults : people} />
           <Pagination
