@@ -6,10 +6,11 @@ const activeClassName = "active";
 
 export const Header = styled.header`
   width: 100%;
-  background-color: ${({theme}) => theme.color.black};
+  background-color: ${({ theme }) => theme.color.black};
   display: flex;
   justify-content: center;
 `;
+
 export const Title = styled.h1`
   font-weight: 500;
   font-size: 24px;
@@ -17,38 +18,40 @@ export const Title = styled.h1`
   margin: 0;
   padding: 0;
 
-
   @media (max-width: 778px) {
     font-size: 18px;
   }
   @media (max-width: 530px) {
     font-size: 13px;
-}
+  }
 `;
 
 export const StyledVideoIcon = styled(VideoIcon)`
-  margin:16px;
+  margin: 16px;
   padding: 0;
 
   @media (max-width: 778px) {
- margin: 10px;
+    margin: 10px;
+    max-width: 22px;
+    max-height: 22px;
+  }
+
+  @media (max-width: 530px) {
+    margin: auto 8px;
     max-width: 16px;
     max-height: 16px;
   }
 `;
 
 export const NavBar = styled.nav`
-  margin: 0 auto;
-  margin-right: 12px;
+  margin: auto;
   flex-basis: 1368px;
-
   min-height: 94px;
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
   justify-content: space-between;
-  color: ${({theme}) => theme.color.white};
-
+  color: ${({ theme }) => theme.color.white};
 
   @media (max-width: 530px) {
     grid-template-columns: auto;
@@ -66,7 +69,7 @@ export const NavList = styled.ul`
   align-items: center;
 
   @media (max-width: 1040px) {
-    gap:20px;
+    gap: 20px;
   }
 
   @media (max-width: 778px) {
@@ -74,8 +77,10 @@ export const NavList = styled.ul`
     margin-bottom: 16px;
   }
   @media (max-width: 530px) {
-  width: 90vw;
-}
+    grid-template-columns: minmax(70px, 230px) 1fr 1fr;
+    margin-right: 28px;
+    margin-left: 18px;
+  }
 `;
 
 export const NavItem = styled.li`
@@ -83,30 +88,30 @@ export const NavItem = styled.li`
 `;
 
 export const StyledNavLinkTitle = styled(NavLink)`
-  color: ${({theme}) => theme.color.white};
+  color: ${({ theme }) => theme.color.white};
   text-decoration: none;
   display: flex;
   align-items: center;
   font-style: normal;
-font-weight: 500;
-line-height: 1.3;
+  font-weight: 500;
+  line-height: 1.3;
 
   &:hover {
-    color: ${({theme}) => theme.color.silver};
+    color: ${({ theme }) => theme.color.silver};
   }
 
   &:active {
-    color: ${({theme}) => theme.color.white};
+    color: ${({ theme }) => theme.color.white};
   }
   @media (max-width: 778px) {
     font-size: 13px;
-    }
+  }
 `;
 
 export const StyledNavLink = styled(NavLink).attrs(() => ({
   activeClassName,
 }))`
-  color: ${({theme}) => theme.color.white};
+  color: ${({ theme }) => theme.color.white};
   text-decoration: none;
   font-style: normal;
   font-size: 14px;
@@ -114,32 +119,30 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
   line-height: 18px;
   display: flex;
   align-items: center;
-  @media (max-width: 778px) {
-font-size: 10px;
 
-    }
-    
+  @media (max-width: 530px) {
+    font-size: 12px;
+  }
+
   &:hover {
-    color: ${({theme}) => theme.color.silver};
+    color: ${({ theme }) => theme.color.silver};
   }
 
   &:active {
-    color: ${({theme}) => theme.color.white};
+    color: ${({ theme }) => theme.color.white};
   }
 
   &.${activeClassName} {
-    border-top: 1px solid ${({theme}) => theme.color.white};
-    border-bottom: 1px solid ${({theme}) => theme.color.white};
-    border-left: 1px solid ${({theme}) => theme.color.white};
-    border-right: 1px solid ${({theme}) => theme.color.white};
+    border-top: 1px solid ${({ theme }) => theme.color.white};
+    border-bottom: 1px solid ${({ theme }) => theme.color.white};
+    border-left: 1px solid ${({ theme }) => theme.color.white};
+    border-right: 1px solid ${({ theme }) => theme.color.white};
     border-radius: 33px;
-    @media (max-width: 480px) {
-      font-size: 12px;
-      padding: 8px
-    padding: 8px 12px;
+    padding: 14px;
 
-    @media (max-width: 778px) {
-font-size: 10px;
+    @media (max-width: 530px) {
+      padding: 8px;
+      padding: 8px 10px;
     }
   }
 `;
