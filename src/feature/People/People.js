@@ -55,9 +55,7 @@ export const People = () => {
   };
   return (
     <>
-      {totalResults === 0 &&
-        peopleStatus !== "loading" &&
-        peopleStatus !== "error" && <NoResult />}
+      {totalResults === 0 && <NoResult />}
       {peopleStatus === "loading" && <Loading />}
       {peopleStatus === "error" && <Error />}
       {peopleStatus === "success" && (

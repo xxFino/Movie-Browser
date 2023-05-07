@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { TextBold, TextNormal } from "../Text";
 import {
   Button,
@@ -9,12 +9,21 @@ import {
   Wrapper,
 } from "./styled";
 
-export const Pagination = ({ page, onPageChange,totalPages,query}) => {
+export const Pagination = ({ page, onPageChange, totalPages, query }) => {
+  const history = useHistory();
 
-  const goToPrev = () => onPageChange(page - 1,query);
-  const goToNext = () => onPageChange(page + 1,query);
-  const goToFirst = () => onPageChange(1,query);
-  const goToLast = () => onPageChange(totalPages,query);
+  const goToPage = (newPage) => {
+    const searchParams = new URLSearchParams(history.location.search);
+    searchParams.set("page", newPage);
+    history.push(`${history.location.pathname}?${searchParams.toString()}`);
+    onPageChange(newPage, query);
+  };
+
+  const goToPrev = () => goToPage(page - 1);
+  const goToNext = () => goToPage(page + 1);
+  const goToFirst = () => goToPage(1);
+  const goToLast = () => goToPage(totalPages);
+
   return (
     <Wrapper>
       <Button onClick={goToFirst} disabled={page === 1}>

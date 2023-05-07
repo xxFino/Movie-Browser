@@ -24,6 +24,7 @@ export const Movies = () => {
   const query = new URLSearchParams(location.search || "").get(
     searchQueryParamName
   );
+  
   const dispatch = useDispatch();
   const moviesStatus = useSelector(selectMoviesStatus);
   const movies = useSelector(selectMovies);
@@ -55,9 +56,7 @@ export const Movies = () => {
   };
   return (
     <>
-      {totalResults === 0 &&
-        moviesStatus !== "loading" &&
-        moviesStatus !== "error" && <NoResult />}
+      {totalResults === 0 && <NoResult />}
       {moviesStatus === "loading" && <Loading />}
       {moviesStatus === "error" && <Error />}
       {moviesStatus === "success" && (
