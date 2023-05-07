@@ -34,12 +34,20 @@ export const getMovieCreditsData = async (personId) => {
   return response.data;
 };
 
-export const getQueryData = async (dataName, query, page=1) => {
+export const getQueryData = async (dataName, query, page = 1) => {
   const response = await axios.get(
     `${BASE_URL}/search/${dataName}?api_key=${API_KEY}&query=${query}&page=${page}`
   );
   return response.data;
 };
+export const getMoviePageDetails = async (id) => {
+  const response = await axios.get(
+    `${BASE_URL}/movie/${id}?api_key=${API_KEY}`
+  );
+
+  return response.data;
+};
+
 export const getMoviePageCredits = async (id) => {
   const response = await axios.get(
     `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`
