@@ -5,10 +5,11 @@ import {
   fetchPeopleError,
   fetchPeopleSuccess,
 } from "./peopleSlice";
+import { delay } from "@reduxjs/toolkit/dist/utils";
 
 function* fetchPeopleHandler({ payload }) {
   try {
-  
+  yield delay(500)
     const page = payload.page;
     const query = payload.query;
     const [people] = yield all([
