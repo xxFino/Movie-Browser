@@ -22,5 +22,5 @@ function* fetchPeopleHandler({ payload }) {
 }
 
 export function* peopleSaga() {
-  yield debounce(500,fetchPeople.type, fetchPeopleHandler);
+  yield takeLatest(fetchPeople.type, fetchPeopleHandler);
 }
