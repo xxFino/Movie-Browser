@@ -46,8 +46,9 @@ export const {
 
 export const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;
-export const selectTotalPages = (state) => selectMoviesState(state).totalPages;
+export const selectMovieTotalPages = (state) =>
+  selectMoviesState(state).totalPages;
 export const selectMoviesStatus = (state) => selectMoviesState(state).status;
-export const selectTotalResults = (state) =>
+export const selectMovieTotalResults = (state) =>
   selectMoviesState(state).totalResults;
 export default moviesSlice.reducer;

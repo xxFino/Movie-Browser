@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { TextBold, TextNormal } from "../Text";
 import {
   Button,
@@ -8,13 +9,12 @@ import {
   Wrapper,
 } from "./styled";
 
-export const Pagination = ({ page, onPageChange }) => {
-  const totalPages = 500;
+export const Pagination = ({ page, onPageChange,totalPages,query}) => {
 
-  const goToPrev = () => onPageChange(page - 1);
-  const goToNext = () => onPageChange(page + 1);
-  const goToFirst = () => onPageChange(1);
-  const goToLast = () => onPageChange(totalPages);
+  const goToPrev = () => onPageChange(page - 1,query);
+  const goToNext = () => onPageChange(page + 1,query);
+  const goToFirst = () => onPageChange(1,query);
+  const goToLast = () => onPageChange(totalPages,query);
   return (
     <Wrapper>
       <Button onClick={goToFirst} disabled={page === 1}>
@@ -30,7 +30,7 @@ export const Pagination = ({ page, onPageChange }) => {
         <TextNormal>Page</TextNormal>
         <TextBold>{page}</TextBold>
         <TextNormal>of</TextNormal>
-        <TextBold>{totalPages}</TextBold>
+        <TextBold>{totalPages > 500 ? 500 : totalPages}</TextBold>
       </Frame>
       <Button onClick={goToNext} disabled={page === totalPages}>
         <ButtonText>Next</ButtonText>

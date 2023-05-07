@@ -38,7 +38,7 @@ export const getQueryData = async (dataName, query, page = 1) => {
   const response = await axios.get(
     `${BASE_URL}/search/${dataName}?api_key=${API_KEY}&query=${query}&page=${page}`
   );
-  return response.data.results;
+  return response.data;
 };
 
 

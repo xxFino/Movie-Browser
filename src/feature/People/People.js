@@ -1,5 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPeople, selectPeople, selectPeopleStatus } from "./peopleSlice";
+import {
+  fetchPeople,
+  fetchPeopleSuccess,
+  selectPeople,
+  selectPeopleStatus,
+  selectPeopleTotalPages,
+  selectPeopleTotalResults,
+} from "./peopleSlice";
 import { useEffect } from "react";
 import { PeopleList } from "./PeopleList";
 import { NoResult } from "../Content/NoResult";
@@ -21,35 +28,48 @@ export const People = () => {
   const peopleStatus = useSelector(selectPeopleStatus);
   const people = useSelector(selectPeople);
   const [page, setPage] = useState(1);
-  const totalPages = 500;
+  const totalPages = useSelector(selectPeopleTotalPages);
   const [searchResults, setSearchResults] = useState([]);
+  const totalResults = useSelector(selectPeopleTotalResults);
 
- useEffect(() => {
-    query
-      ? getQueryData("person", query).then(setSearchResults)
-      : dispatch(fetchPeople({ page: 1 }));
-  }, [dispatch, query]);
+  useEffect(() => {
+    if (query) {
+      getQueryData("person", query, page).then((response) => {
+        setSearchResults(response.results);
+        dispatch(
+          fetchPeopleSuccess({
+            people: response.results,
+            totalPages: response.total_pages,
+            totalResults: response.total_results,
+          })
+        );
+      });
+    } else {
+      dispatch(fetchPeople({ page }));
+    }
+  }, [dispatch, query, page]);
 
-  const onPageChange = (page) => (
-    setPage(page), dispatch(fetchPeople({ page }))
+  const onPageChange = (page, query) => {
+    setPage(page);
+    dispatch(fetchPeople({ page, query }));
+  };
+  return (
+    <>
+      {totalResults === 0 &&
+        peopleStatus !== "loading" &&
+        peopleStatus !== "error" && <NoResult />}
+      {peopleStatus === "loading" && <Loading />}
+      {peopleStatus === "error" && <Error />}
+      {peopleStatus === "success" && (
+        <Container>
+          <PeopleList people={query ? searchResults : people} />
+          <Pagination
+            page={page}
+            totalPages={totalPages > 500 ? 500 : totalPages}
+            onPageChange={onPageChange}
+          />
+        </Container>
+      )}
+    </>
   );
-
-  return {
-    loading: <Loading />,
-    error: <Error />,
-    noResult: <NoResult />,
-    success: (
-      <Container>
-        <PeopleList
-          status={peopleStatus}
-          people={query ? searchResults : people}
-        />
-        <Pagination
-          page={page}
-          totalPages={totalPages}
-          onPageChange={onPageChange}
-        />
-      </Container>
-    ),
-  }[peopleStatus];
 };
