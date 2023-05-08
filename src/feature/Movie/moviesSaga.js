@@ -1,4 +1,4 @@
-import { delay, call, put, takeLatest, all } from "redux-saga/effects";
+import { call, put, takeLatest, all } from "redux-saga/effects";
 import { getPopularData, getGenres, getQueryData } from "../../core/getData";
 import {
   fetchMoviesError,
