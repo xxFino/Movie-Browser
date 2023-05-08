@@ -59,7 +59,6 @@ export const Movies = () => {
     setPage(page);
     dispatch(fetchMovies({ page, query }));
   };
-  loading: <NoResult />;
   return (
     <>
       {moviesStatus === "loading" ? (
