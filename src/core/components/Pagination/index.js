@@ -1,3 +1,4 @@
+import { useHistory } from "react-router-dom";
 import { TextBold, TextNormal } from "../Text";
 import {
   Button,
@@ -8,11 +9,20 @@ import {
   Wrapper,
 } from "./styled";
 
-export const Pagination = ({ page, onPageChange,query,totalPages }) => {
-  const goToPrev = () => onPageChange(page - 1,query);
-  const goToNext = () => onPageChange(page + 1,query);
-  const goToFirst = () => onPageChange(1,query);
-  const goToLast = () => onPageChange(totalPages,query);
+export const Pagination = ({ page, onPageChange, query, totalPages }) => {
+  const history = useHistory();
+
+  const goToPage = (newPage) => {
+    const searchParams = new URLSearchParams(history.location.search);
+    searchParams.set("page", newPage);
+    history.push(`${history.location.pathname}?${searchParams.toString()}`);
+    onPageChange(newPage, query);
+  };
+
+  const goToPrev = () => goToPage(page - 1, query);
+  const goToNext = () => goToPage(page + 1, query);
+  const goToFirst = () => goToPage(1, query);
+  const goToLast = () => goToPage(totalPages, query);
 
   return (
     <Wrapper>
