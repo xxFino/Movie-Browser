@@ -3,7 +3,6 @@ import searchQueryParamName from "../../NavigationBar/SearchBar/searchQueryParam
 import { Wrapper } from "./styled";
 import Header from "../../../core/components/Header";
 import { MovieTile } from "../MovieTile";
-import { NoResult } from "../../Content/NoResult";
 import { useSelector } from "react-redux";
 import { selectMovieTotalResults } from "../moviesSlice";
 
