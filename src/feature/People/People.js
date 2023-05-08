@@ -5,7 +5,6 @@ import {
   selectPeople,
   selectPeopleStatus,
   selectPeopleTotalPages,
-  selectPeopleTotalResults,
 } from "./peopleSlice";
 import { useEffect } from "react";
 import { PeopleList } from "./PeopleList";
@@ -30,7 +29,6 @@ export const People = () => {
   const [page, setPage] = useState(1);
   const totalPages = useSelector(selectPeopleTotalPages);
   const [searchResults, setSearchResults] = useState([]);
-  const totalResults = useSelector(selectPeopleTotalResults);
 
   useEffect(() => {
     if (query) {
@@ -48,6 +46,11 @@ export const People = () => {
       dispatch(fetchPeople({ page }));
     }
   }, [dispatch, query, page]);
+  useEffect(() => {
+    if (!query) {
+      setPage(1);
+    }
+  }, [query]);
 
   const onPageChange = (page, query) => {
     setPage(page);

@@ -49,6 +49,12 @@ export const Movies = () => {
     }
   }, [dispatch, query, page]);
 
+  useEffect(() => {
+    if (!query) {
+      setPage(1);
+    }
+  }, [query]);
+
   const onPageChange = (page, query) => {
     setPage(page);
     dispatch(fetchMovies({ page, query }));
