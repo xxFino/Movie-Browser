@@ -5,7 +5,6 @@ import {
   selectPeople,
   selectPeopleStatus,
   selectPeopleTotalPages,
-  selectPeopleTotalResults,
 } from "./peopleSlice";
 import { useEffect } from "react";
 import { PeopleList } from "./PeopleList";
@@ -30,7 +29,6 @@ export const People = () => {
   const [page, setPage] = useState(1);
   const totalPages = useSelector(selectPeopleTotalPages);
   const [searchResults, setSearchResults] = useState([]);
-  const totalResults = useSelector(selectPeopleTotalResults);
 
   useEffect(() => {
     if (query) {
@@ -49,6 +47,12 @@ export const People = () => {
     }
   }, [dispatch, query, page]);
 
+  useEffect(() => {
+    if (!query) {
+      setPage(1);
+    }
+  }, [query]);
+
   const onPageChange = (page, query) => {
     setPage(page);
     dispatch(fetchPeople({ page, query }));
@@ -66,7 +70,7 @@ export const People = () => {
           <PeopleList people={query ? searchResults : people} />
           <Pagination
             page={page}
-            totalPages={totalPages > 500 ? 500 : totalPages}
+            totalPages={totalPages}
             onPageChange={onPageChange}
           />
         </Container>

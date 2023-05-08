@@ -3,7 +3,6 @@ import {
   fetchMovies,
   fetchMoviesSuccess,
   selectMovieTotalPages,
-  selectMovieTotalResults,
   selectMovies,
   selectMoviesStatus,
 } from "./moviesSlice";
@@ -49,11 +48,16 @@ export const Movies = () => {
     }
   }, [dispatch, query, page]);
 
+  useEffect(() => {
+    if (!query) {
+      setPage(1);
+    }
+  }, [query]);
+
   const onPageChange = (page, query) => {
     setPage(page);
     dispatch(fetchMovies({ page, query }));
   };
-  loading: <NoResult />;
   return (
     <>
       {moviesStatus === "loading" ? (
@@ -67,7 +71,7 @@ export const Movies = () => {
           <MoviesList movies={query ? searchResults : movies} />
           <Pagination
             page={page}
-            totalPages={totalPages > 500 ? 500 : totalPages}
+            totalPages={totalPages}
             onPageChange={onPageChange}
           />
         </Container>
