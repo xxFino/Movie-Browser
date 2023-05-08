@@ -24,6 +24,11 @@ export const moviesSlice = createSlice({
       } else {
         state.status = "success";
       }
+      if (payload.totalPages > 500) {
+        state.totalPages = 500;
+      } else {
+        state.totalPages = payload.totalPages;
+      }
     },
 
     fetchMoviesError: (state) => {
