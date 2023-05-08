@@ -1,4 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import {
   fetchPeople,
   fetchPeopleSuccess,
@@ -6,16 +9,13 @@ import {
   selectPeopleStatus,
   selectPeopleTotalPages,
 } from "./peopleSlice";
-import { useEffect } from "react";
 import { PeopleList } from "./PeopleList";
 import { NoResult } from "../Content/NoResult";
 import { Loading } from "../Content/Loading";
 import { Container } from "../../core/components/Container";
 import { Error } from "../Content/Error";
 import { Pagination } from "../../core/components/Pagination";
-import { useLocation } from "react-router-dom";
 import searchQueryParamName from "../NavigationBar/SearchBar/searchQueryParamName";
-import { useState } from "react";
 import { getQueryData } from "../../core/getData";
 
 export const People = () => {

@@ -11,7 +11,7 @@ export const SearchBar = () => {
       history.push(`${location.pathname}`);
     } else {
       history.push(
-        `${location.pathname}?${searchQueryParamName}=${target.value}&page=1`
+        `${location.pathname}?${searchQueryParamName}=${target.value}`
       );
     }
   };
