@@ -1,4 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import {
   fetchMovies,
   fetchMoviesSuccess,
@@ -11,11 +14,8 @@ import { Loading } from "../Content/Loading";
 import { MoviesList } from "./MoviesList";
 import { Container } from "../../core/components/Container";
 import { Error } from "../Content/Error";
-import { useEffect } from "react";
 import { Pagination } from "../../core/components/Pagination";
-import { useLocation } from "react-router-dom";
 import searchQueryParamName from "../NavigationBar/SearchBar/searchQueryParamName";
-import { useState } from "react";
 import { getQueryData } from "../../core/getData";
 
 export const Movies = () => {
