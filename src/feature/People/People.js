@@ -46,6 +46,7 @@ export const People = () => {
       dispatch(fetchPeople({ page }));
     }
   }, [dispatch, query, page]);
+
   useEffect(() => {
     if (!query) {
       setPage(1);
@@ -69,7 +70,7 @@ export const People = () => {
           <PeopleList people={query ? searchResults : people} />
           <Pagination
             page={page}
-            totalPages={totalPages > 500 ? 500 : totalPages}
+            totalPages={totalPages}
             onPageChange={onPageChange}
           />
         </Container>
