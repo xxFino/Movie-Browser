@@ -19,11 +19,11 @@ export const SearchBar = () => {
     <Form>
       <StyledSearchIcon />
       <SearchInput
-        placeholder={
-          location.pathname.includes("people")
-            ? "Search for people..."
-            : "Search for movies..."
-        }
+       placeholder={
+        location.pathname.includes("people") || location.pathname.includes("person")
+        ? "Search for people..."
+          : "Search for movies..."
+      }
         value={
           new URLSearchParams(location.search || "").get(
             searchQueryParamName
