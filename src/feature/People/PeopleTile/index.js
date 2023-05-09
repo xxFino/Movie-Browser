@@ -1,6 +1,7 @@
 import Poster from "./poster.png";
 import { toActor } from "../../NavigationBar/route";
-import { Tile, Image, Title } from "./styled";
+import { Tile, Image, Title, Info } from "./styled";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const PeopleTile = ({ people }) => {
   const profilePath = `https://image.tmdb.org/t/p/original`;
@@ -9,7 +10,7 @@ export const PeopleTile = ({ people }) => {
     <>
       {people &&
         people.map((person) => (
-          <Tile to={toActor(person.id)} key={person.id}>
+          <Tile to={toActor(person.id)} key={nanoid()}>
             {person.profile_path ? (
               <Image
                 src={
@@ -21,6 +22,8 @@ export const PeopleTile = ({ people }) => {
               <Image src={Poster} alt="poster" />
             )}
             <Title>{person.name}</Title>
+            {person.character && <Info>{person.character}</Info>}
+            {person.department && <Info>{person.department}</Info>}
           </Tile>
         ))}
     </>
