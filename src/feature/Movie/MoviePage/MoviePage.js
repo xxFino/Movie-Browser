@@ -1,28 +1,49 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { Loading } from "../../Content/Loading";
 import { Error } from "../../Content/Error";
 import {
   fetchMoviePage,
+  selectMoviePageDetails,
   selectMoviePageStatus,
   setMoviePageId,
 } from "./moviePageSlice";
 import { MoviePageDetails } from "./MoviePageDetails";
+import searchQueryParamName from "../../NavigationBar/SearchBar/searchQueryParamName";
+import { useFetchMovies } from "../useFetchMovies";
+import { Movies } from "../Movies";
+import { NoResult } from "../../Content/NoResult";
 
 export const MoviePage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const status = useSelector(selectMoviePageStatus);
+  const moviesDetail = useSelector(selectMoviePageDetails);
+  const [searchResults, setSearchResults] = useState([]);
+  const location = useLocation();
+  const query = new URLSearchParams(location.search || "").get(
+    searchQueryParamName
+  );
+  useFetchMovies({ dispatch, query, setSearchResults });
 
   useEffect(() => {
-    dispatch(fetchMoviePage());
-    dispatch(setMoviePageId(id));
-  }, [id, dispatch]);
+    dispatch(fetchMoviePage(query));
+    dispatch(setMoviePageId(id, query));
+  }, [id, dispatch, query]);
 
   return {
     loading: <Loading />,
-    success: <MoviePageDetails />,
+    success: (
+      <>
+        {query ? (
+          <Movies movies={searchResults} />
+        ) : (
+          <MoviePageDetails moviesPage={moviesDetail} />
+        )}
+      </>
+    ),
     error: <Error />,
+    noResult:<NoResult />
   }[status];
 };

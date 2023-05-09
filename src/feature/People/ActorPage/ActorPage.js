@@ -1,36 +1,43 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Container } from "../../../core/components/Container";
-import {
-  fetchActor,
-  selectActor,
-  selectActorStatus,
-} from "./actorSlice";
+import { fetchActor, selectActor, selectActorStatus } from "./actorSlice";
 import { NoResult } from "../../Content/NoResult";
 import { Loading } from "../../Content/Loading";
 import { ActorInfo } from "./index";
 import { Error } from "../../Content/Error";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useLocation, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import searchQueryParamName from "../../NavigationBar/SearchBar/searchQueryParamName";
+import { useFetchPeople } from "../useFetchPeople";
+import { People } from "../People";
 
 export const ActorPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const actor = useSelector(selectActor(id));
   const status = useSelector(selectActorStatus);
-
+  const [searchResults, setSearchResults] = useState([]);
+  const location = useLocation();
+  const query = new URLSearchParams(location.search || "").get(
+    searchQueryParamName
+  );
+  useFetchPeople({ dispatch, query, setSearchResults });
   useEffect(() => {
-    dispatch(fetchActor(id));
-  }, [dispatch, id]);
+    dispatch(fetchActor(id, query));
+  }, [dispatch, id, query]);
 
   return {
     initial: null,
     loading: <Loading />,
     success: (
-      <Container>
+      <>
+      {query ? (
+        <People people={searchResults} />
+      ) : (
         <ActorInfo actorInfo={actor} />
-      </Container>
-    ),
+      )}
+    </>
+  ),
     error: <Error />,
-    noResult: <NoResult />,
+    noResult:<NoResult />
   }[status];
 };
