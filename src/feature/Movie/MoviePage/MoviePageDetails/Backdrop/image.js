@@ -1,1 +1,0 @@
-export const backdropImage = "https://image.tmdb.org/t/p/original";
