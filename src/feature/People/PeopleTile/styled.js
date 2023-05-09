@@ -47,3 +47,23 @@ export const Title = styled.p`
     margin-bottom: 30px;
   }
 `;
+
+export const Info = styled.span`
+  text-align: center;
+  justify-self: baseline;
+  margin: auto;
+  margin-bottom: 16px;
+  margin-top: -42px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: ${({ theme }) => theme.color.waterloo};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
+    font-size: 15px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    font-size: 14px;
+  }
+`;
