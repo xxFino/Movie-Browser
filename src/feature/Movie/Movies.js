@@ -15,7 +15,6 @@ import { Container } from "../../core/components/Container";
 import { Error } from "../Content/Error";
 import { Pagination } from "../../core/components/Pagination";
 import searchQueryParamName from "../NavigationBar/SearchBar/searchQueryParamName";
-import { useState } from "react";
 import { useFetchMovies } from "./useFetchMovies";
 
 export const Movies = () => {
