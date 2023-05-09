@@ -1,13 +1,13 @@
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 import searchQueryParamName from "../../NavigationBar/SearchBar/searchQueryParamName";
 import { Wrapper } from "./styled";
 import Header from "../../../core/components/Header";
 import { MovieTile } from "../MovieTile";
-import { useSelector } from "react-redux";
 import { selectMovieTotalResults } from "../moviesSlice";
 
-export const MoviesList = ({ movies}) => {
-  const totalResults= useSelector(selectMovieTotalResults);
+export const MoviesList = ({ movies }) => {
+  const totalResults = useSelector(selectMovieTotalResults);
   const location = useLocation();
   const query = new URLSearchParams(location.search || "").get(
     searchQueryParamName
@@ -18,12 +18,10 @@ export const MoviesList = ({ movies}) => {
 
   return (
     <>
-        <>
-          <Header>{title}</Header>
-          <Wrapper>
-            <MovieTile movies={movies} />
-          </Wrapper>
-        </>
+      <Header>{title}</Header>
+      <Wrapper>
+        <MovieTile movies={movies} />
+      </Wrapper>
     </>
   );
 };
