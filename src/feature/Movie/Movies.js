@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import {
   fetchMovies,
-  fetchMoviesSuccess,
   selectMovieTotalPages,
   selectMovies,
   selectMoviesStatus,
@@ -16,7 +15,7 @@ import { Container } from "../../core/components/Container";
 import { Error } from "../Content/Error";
 import { Pagination } from "../../core/components/Pagination";
 import searchQueryParamName from "../NavigationBar/SearchBar/searchQueryParamName";
-import { getQueryData } from "../../core/getData";
+import { useFetchMovies } from "./useFetchMovies";
 
 export const Movies = () => {
   const location = useLocation();
@@ -31,22 +30,7 @@ export const Movies = () => {
   const [page, setPage] = useState(1);
   const totalPages = useSelector(selectMovieTotalPages);
 
-  useEffect(() => {
-    if (query) {
-      getQueryData("movie", query, page).then((response) => {
-        setSearchResults(response.results);
-        dispatch(
-          fetchMoviesSuccess({
-            movies: response.results,
-            totalPages: response.total_pages,
-            totalResults: response.total_results,
-          })
-        );
-      });
-    } else {
-      dispatch(fetchMovies({ page }));
-    }
-  }, [dispatch, query, page]);
+  useFetchMovies({ dispatch, query, page, setSearchResults });
 
   useEffect(() => {
     if (!query) {
