@@ -1,12 +1,13 @@
-import React from "react";
 import { useSelector } from "react-redux";
-import { selectMoviesCast, selectMoviesCrew } from "./actorSlice";
+import { selectMoviesCast, selectMoviesCrew } from "./ActorSlice";
 import { Title } from "../../../core/components/Title";
 import { Container } from "../../../core/components/Container";
 import { MovieTile } from "../../Movie/MovieTile";
 import { Wrapper } from "../../Movie/MoviesList/styled";
 
+
 export const ActorInfo = () => {
+ 
   const cast = useSelector(selectMoviesCast);
   const crew = useSelector(selectMoviesCrew);
 

@@ -11,7 +11,7 @@ export const SearchBar = () => {
       history.push(`${location.pathname}`);
     } else {
       history.push(
-        `${location.pathname}?${searchQueryParamName}=${target.value}&page=1`
+        `${location.pathname}?${searchQueryParamName}=${target.value}`
       );
     }
   };
@@ -19,11 +19,11 @@ export const SearchBar = () => {
     <Form>
       <StyledSearchIcon />
       <SearchInput
-        placeholder={
-          location.pathname.includes("people")
-            ? "Search for people..."
-            : "Search for movies..."
-        }
+       placeholder={
+        location.pathname.includes("people") || location.pathname.includes("person")
+        ? "Search for people..."
+          : "Search for movies..."
+      }
         value={
           new URLSearchParams(location.search || "").get(
             searchQueryParamName
