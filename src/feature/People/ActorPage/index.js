@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectMoviesCast, selectMoviesCrew } from "./actorSlice";
+import { selectMoviesCast, selectMoviesCrew } from "./ActorSlice";
 import { Title } from "../../../core/components/Title";
 import { Container } from "../../../core/components/Container";
 import { MovieTile } from "../../Movie/MovieTile";

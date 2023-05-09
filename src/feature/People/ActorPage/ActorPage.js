@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchActor, selectActor, selectActorStatus } from "./actorSlice";
+import { fetchActor, selectActor, selectActorStatus } from "./ActorSlice";
 import { NoResult } from "../../Content/NoResult";
 import { Loading } from "../../Content/Loading";
 import { ActorInfo } from "./index";
