@@ -3,7 +3,6 @@ import searchQueryParamName from "../../NavigationBar/SearchBar/searchQueryParam
 import { PeopleTile } from "../PeopleTile";
 import Header from "../../../core/components/Header";
 import { Wrapper } from "./styled";
-import { NoResult } from "../../Content/NoResult";
 import { selectPeopleTotalResults } from "../peopleSlice";
 import { useSelector } from "react-redux";
 
