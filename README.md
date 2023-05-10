@@ -6,6 +6,7 @@
 ## Description
 The movies browser application was created as a final project in the course from Youcode. The app is used to browse and search for movies, actors, and film crew. 
 
+
 ## Api 
 The website gets data from:
 https://www.themoviedb.org/
