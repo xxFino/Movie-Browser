@@ -1,8 +1,17 @@
-# Demo 
+# Movie Browser
 
-https://mariolafilipiak.github.io/Movie-Browser/
+## Demo 
+[Movie Browser](https://walmarek.github.io/Movie-Browser/)
 
-https://walmarek.github.io/Movie-Browser/
+## Description
+The movies browser application was created as a final project in the course from Youcode. The app is used to browse and search for movies, actors, and film crew. 
+
+## Api 
+The website gets data from:
+https://www.themoviedb.org/
+
+![img]()
+![img]()
 
 # Getting Started with Create React App
 
