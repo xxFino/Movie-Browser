@@ -10,8 +10,8 @@ The movies browser application was created as a final project in the course from
 The website gets data from:
 https://www.themoviedb.org/
 
-![img]()
-![img]()
+![img](https://raw.githubusercontent.com/walmarek/Movie-Browser/1c4d5c5bc2641f6b98f66cd058722b2d0b02eb15/public/People.png)
+![img](https://raw.githubusercontent.com/walmarek/Movie-Browser/1c4d5c5bc2641f6b98f66cd058722b2d0b02eb15/public/Movies.png)
 
 ## Technologies used
 
