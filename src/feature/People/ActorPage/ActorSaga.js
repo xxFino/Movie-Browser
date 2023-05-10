@@ -1,6 +1,6 @@
 import { all, call, delay, put, takeLatest } from "redux-saga/effects";
 import { getMovieCreditsData, getPersonData } from "../../../core/getData";
-import { fetchActor, fetchActorError, fetchActorSuccess } from "./ActorSlice";
+import { fetchActor, fetchActorError, fetchActorSuccess } from "./actorSlice";
 
 function* fetchActorHandler({ payload }) {
   try {
