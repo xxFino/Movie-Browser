@@ -54,13 +54,13 @@ export const BackdropContainer = styled.section`
         rgba(0, 0, 0, 0) 24.22%
       ),
       linear-gradient(
-        189.44deg,
+        180deg,
         rgba(0, 0, 0, 0) 58.48%,
         rgba(0, 0, 0, 0.106473) 63.17%,
         rgba(0, 0, 0, 0.235359) 68.85%,
         rgba(0, 0, 0, 0.492821) 78.08%,
         rgba(0, 0, 0, 0.740286) 85.86%,
-        #000000 92.87%
+        #000000 100%
       );
   }
 `;
@@ -85,12 +85,12 @@ export const BackdropBox = styled.div`
 `;
 
 export const RatingWrapper = styled.div`
-display: block;
+  display: block;
 
-@media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     display: flex;
-}
-`
+  }
+`;
 
 export const BackdropTitle = styled.h1`
   font-size: 64px;
@@ -155,7 +155,7 @@ export const RateOn = styled.span`
 export const Votes = styled.span`
   font-size: 15px;
   line-height: 19px;
- 
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 10px;
     margin-left: 8px;
