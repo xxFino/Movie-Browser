@@ -6,14 +6,35 @@
 ## Description
 The movies browser application was created as a final project in the course from Youcode. The app is used to browse and search for movies, actors, and film crew. 
 
+
 ## Api 
 The website gets data from:
 https://www.themoviedb.org/
 
-![img]()
-![img]()
+![img](https://raw.githubusercontent.com/walmarek/Movie-Browser/1c4d5c5bc2641f6b98f66cd058722b2d0b02eb15/public/People.png)
+![img](https://raw.githubusercontent.com/walmarek/Movie-Browser/1c4d5c5bc2641f6b98f66cd058722b2d0b02eb15/public/Movies.png)
 
-# Getting Started with Create React App
+## Technologies used
+
+HTML
+
+CSS
+
+Normalize
+
+BEM
+
+Grid
+
+Flex
+
+React
+
+Redux
+
+Redux-Saga
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
