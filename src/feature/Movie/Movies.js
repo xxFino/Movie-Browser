@@ -32,11 +32,11 @@ export const Movies = () => {
 
   useFetchMovies({ dispatch, query, page, setSearchResults });
 
-  useEffect(() => {
-    if (!query) {
-      setPage(1);
-    }
-  }, [query]);
+useEffect(() => {
+  if (query && page > 1) {
+    setPage(1);
+  }
+}, [query]);
 
   const onPageChange = (page, query) => {
     setPage(page);
