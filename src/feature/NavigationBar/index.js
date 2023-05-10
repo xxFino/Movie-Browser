@@ -37,17 +37,17 @@ export const NavigationBar = () => {
         </NavBar>
       </Header>
       <Switch>
+      <Route path={toMovie(":id")}>
+          <MoviePage />
+        </Route>
         <Route path={toMovies()}>
           <Movies />
-        </Route>
-        <Route path={toMovie(":id")}>
-          <MoviePage />
+        </Route> 
+        <Route path={toActor(":id")}>
+          <ActorPage />
         </Route>
         <Route path={toPeople()}>
           <People />
-        </Route>
-        <Route path={toActor(":id")}>
-          <ActorPage />
         </Route>
         <Route path="/">
           <Redirect to={toMovies()} />
