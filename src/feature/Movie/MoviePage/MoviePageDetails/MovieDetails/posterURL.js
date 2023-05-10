@@ -1,0 +1,1 @@
+export const posterImage = "https://image.tmdb.org/t/p/w400"
