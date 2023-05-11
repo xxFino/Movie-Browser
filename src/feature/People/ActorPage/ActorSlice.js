@@ -35,6 +35,8 @@ export const selectActor = (id) => (state) => {
   const actorInfo = selectActorState(state).actorInfo;
   return actorInfo.find((actor) => actor.id === Number(id));
 };
+
+export const selectActorDetails = (state) => selectActorState(state).actorInfo[0];
 export const selectMoviesCast = (state) => selectActorState(state).moviesCast;
 export const selectMoviesCrew = (state) => selectActorState(state).moviesCrew;
 export const selectActorStatus = (state) => selectActorState(state).status;
