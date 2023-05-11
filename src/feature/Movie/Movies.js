@@ -35,12 +35,9 @@ export const Movies = () => {
   useFetchMovies({ dispatch, query, page, setSearchResults });
 
   useEffect(() => {
-    if (query && page > 1) {
-      setPage(1);
-    } else if (!query) {
-      setPage(1);
-    }
+    setPage(1);
   }, [query]);
+
 
   const onPageChange = (page, query) => {
     setPage(page);

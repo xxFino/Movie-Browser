@@ -28,23 +28,18 @@ export const People = () => {
   const people = useSelector(selectPeople);
   const [page, setPage] = useState(1);
   const totalPages = useSelector(selectPeopleTotalPages);
-  const totalResults= useSelector(selectPeopleTotalResults);
+  const totalResults = useSelector(selectPeopleTotalResults);
   const [searchResults, setSearchResults] = useState([]);
 
   useFetchPeople({ dispatch, query, page, setSearchResults });
 
   useEffect(() => {
-    if (query && page > 1) {
-      setPage(1);
-    } else if (!query) {
-      setPage(1);
-    }
+    setPage(1);
   }, [query]);
-  
-  const onPageChange = (page,query) => {
+
+  const onPageChange = (page, query) => {
     setPage(page);
     dispatch(fetchPeople({ page, query }));
-
   };
   return (
     <>

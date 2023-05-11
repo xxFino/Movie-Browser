@@ -18,6 +18,5 @@ export const useFetchPeople = ({ dispatch, query, page, setSearchResults }) => {
     } else {
       dispatch(fetchPeople({ page }));
     }
-    
   }, [dispatch, query, page, setSearchResults]);
 };

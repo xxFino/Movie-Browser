@@ -3,11 +3,8 @@ import searchQueryParamName from "../../NavigationBar/SearchBar/searchQueryParam
 import { PeopleTile } from "../PeopleTile";
 import Header from "../../../core/components/Header";
 import { Wrapper } from "./styled";
-import { selectPeopleTotalResults } from "../peopleSlice";
-import { useSelector } from "react-redux";
 
-export const PeopleList = ({ people,totalResults }) => {
-
+export const PeopleList = ({ people, totalResults }) => {
   const location = useLocation();
   const query = new URLSearchParams(location.search || "").get(
     searchQueryParamName
@@ -18,12 +15,12 @@ export const PeopleList = ({ people,totalResults }) => {
 
   return (
     <>
-        <>
-          <Header>{title}</Header>
-          <Wrapper>
-            <PeopleTile people={people} />
-          </Wrapper>
-        </>
+      <>
+        <Header>{title}</Header>
+        <Wrapper>
+          <PeopleTile people={people} />
+        </Wrapper>
+      </>
     </>
   );
 };
