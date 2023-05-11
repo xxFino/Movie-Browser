@@ -2,13 +2,12 @@ import { useHistory, useLocation } from "react-router-dom";
 import { Form, SearchInput, StyledSearchIcon } from "./styled";
 import searchQueryParamName from "./searchQueryParamName";
 import { useEffect, useState } from "react";
-import { useDebounce } from "../../useDebounce";
+import { useDebounce } from "./useDebounce";
 
 export const SearchBar = () => {
   const location = useLocation();
   const history = useHistory();
   const [searchValue, setSearchValue] = useState("");
-
   const debouncedSearchValue = useDebounce(searchValue, 500);
 
   useEffect(() => {
@@ -21,10 +20,13 @@ export const SearchBar = () => {
     }
   }, [debouncedSearchValue, history, location.pathname]);
 
+  useEffect(() => {
+    setSearchValue("");
+  }, [location.pathname]);
+
   const onInputChange = ({ target }) => {
     setSearchValue(target.value);
   };
-
   return (
     <Form>
       <StyledSearchIcon />
