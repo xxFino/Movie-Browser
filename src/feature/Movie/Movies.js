@@ -5,6 +5,7 @@ import { useState } from "react";
 import {
   fetchMovies,
   selectMovieTotalPages,
+  selectMovieTotalResults,
   selectMovies,
   selectMoviesStatus,
 } from "./moviesSlice";
@@ -29,14 +30,17 @@ export const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [page, setPage] = useState(1);
   const totalPages = useSelector(selectMovieTotalPages);
+  const totalResults = useSelector(selectMovieTotalResults);
 
   useFetchMovies({ dispatch, query, page, setSearchResults });
 
-useEffect(() => {
-  if (query && page > 1) {
-    setPage(1);
-  }
-}, [query]);
+  useEffect(() => {
+    if (query && page > 1) {
+      setPage(1);
+    } else if (!query) {
+      setPage(1);
+    }
+  }, [query]);
 
   const onPageChange = (page, query) => {
     setPage(page);
@@ -52,7 +56,10 @@ useEffect(() => {
         <NoResult />
       ) : (
         <Container>
-          <MoviesList movies={query ? searchResults : movies} />
+          <MoviesList
+            movies={query ? searchResults : movies}
+            totalResults={totalResults}
+          />
           <Pagination
             page={page}
             totalPages={totalPages}

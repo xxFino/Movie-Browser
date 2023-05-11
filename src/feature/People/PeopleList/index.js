@@ -6,8 +6,7 @@ import { Wrapper } from "./styled";
 import { selectPeopleTotalResults } from "../peopleSlice";
 import { useSelector } from "react-redux";
 
-export const PeopleList = ({ people }) => {
-  const totalResults = useSelector(selectPeopleTotalResults);
+export const PeopleList = ({ people,totalResults }) => {
 
   const location = useLocation();
   const query = new URLSearchParams(location.search || "").get(
