@@ -7,6 +7,7 @@ import {
   selectPeople,
   selectPeopleStatus,
   selectPeopleTotalPages,
+  selectPeopleTotalResults,
 } from "./peopleSlice";
 import { PeopleList } from "./PeopleList";
 import { NoResult } from "../Content/NoResult";
@@ -27,14 +28,13 @@ export const People = () => {
   const people = useSelector(selectPeople);
   const [page, setPage] = useState(1);
   const totalPages = useSelector(selectPeopleTotalPages);
+  const totalResults = useSelector(selectPeopleTotalResults);
   const [searchResults, setSearchResults] = useState([]);
 
   useFetchPeople({ dispatch, query, page, setSearchResults });
 
   useEffect(() => {
-    if (!query) {
-      setPage(1);
-    }
+    setPage(1);
   }, [query]);
 
   const onPageChange = (page, query) => {
@@ -51,7 +51,10 @@ export const People = () => {
         <NoResult />
       ) : (
         <Container>
-          <PeopleList people={query ? searchResults : people} />
+          <PeopleList
+            people={query ? searchResults : people}
+            totalResults={totalResults}
+          />
           <Pagination
             page={page}
             totalPages={totalPages}

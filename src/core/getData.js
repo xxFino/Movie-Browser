@@ -4,6 +4,13 @@ const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "64dcf25583202648eae7e90e51a0966d";
 export const imgBaseUrl = `https://image.tmdb.org/t/p/`;
 
+export const getQueryData = async (dataName, query, page = 1) => {
+  const response = await axios.get(
+    `${BASE_URL}/search/${dataName}?api_key=${API_KEY}&query=${query}&page=${page}`
+  );
+  return response.data;
+};
+
 export const getPopularData = async (dataName, page, query) => {
   const { data } = await axios.get(
     `${BASE_URL}/${dataName}/popular?api_key=${API_KEY}&page=${page}&query=${query}`
@@ -35,12 +42,7 @@ export const getMovieCreditsData = async (personId) => {
   return response.data;
 };
 
-export const getQueryData = async (dataName, query, page = 1) => {
-  const response = await axios.get(
-    `${BASE_URL}/search/${dataName}?api_key=${API_KEY}&query=${query}&page=${page}`
-  );
-  return response.data;
-};
+
 export const getMoviePageDetails = async (id) => {
   const response = await axios.get(
     `${BASE_URL}/movie/${id}?api_key=${API_KEY}`
