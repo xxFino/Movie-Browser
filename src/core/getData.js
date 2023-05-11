@@ -2,6 +2,7 @@ import axios from "axios";
 
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "64dcf25583202648eae7e90e51a0966d";
+export const imgBaseUrl = `https://image.tmdb.org/t/p/`;
 
 export const getPopularData = async (dataName, page, query) => {
   const { data } = await axios.get(
