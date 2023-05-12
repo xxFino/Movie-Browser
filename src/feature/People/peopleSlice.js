@@ -5,7 +5,7 @@ export const peopleSlice = createSlice({
   initialState: {
     people: [],
     totalResults: 0,
-    totalPages: 500,
+    totalPages: 0,
     status: "initial",
   },
   reducers: {

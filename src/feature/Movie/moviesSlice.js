@@ -7,7 +7,7 @@ export const moviesSlice = createSlice({
     movies: [],
     genres: [],
     totalResults: 0,
-    totalPages: 500,
+    totalPages: 0,
     status: "initial",
   },
   reducers: {
