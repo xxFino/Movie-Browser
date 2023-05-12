@@ -16,6 +16,7 @@
     max: "1396px",
     medium: "1040px",
     mobile: "778px",
+    min: "375px",
   },
 };
 export default theme;
