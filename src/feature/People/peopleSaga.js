@@ -6,8 +6,10 @@ import {
   fetchPeopleSuccess,
 } from "./peopleSlice";
 
-function* fetchPeopleHandler({ payload: page, query }) {
+function* fetchPeopleHandler({ payload}) {
   try {
+    const page=payload.page;
+    const query=payload.query
     const [people] = yield all([
       call(getPopularData, "person", page),
       call(getQueryData, "person", page, query),

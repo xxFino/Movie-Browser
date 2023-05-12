@@ -7,8 +7,10 @@ import {
   fetchGenres,
 } from "./moviesSlice";
 
-function* fetchMoviesHandler({ payload: page, query }) {
+function* fetchMoviesHandler({ payload}) {
   try {
+    const page=payload.page;
+    const query=payload.query
     const [movies, genres] = yield all([
       call(getPopularData, "movie", page),
       call(getQueryData, "movie", page, query),

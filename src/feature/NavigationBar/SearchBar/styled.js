@@ -37,6 +37,8 @@ export const SearchInput = styled.input`
   line-height: 24px;
   border-radius: 33px;
   border: none;
+  margin-left: 40px;
+  padding-left: 10px;
 
   &::placeholder {
     font-size: 16px;
@@ -44,7 +46,7 @@ export const SearchInput = styled.input`
 
     @media (max-width: 776px) {
       font-size: 14px;
-      padding-left: 10px;
+      
     }
   }
 
