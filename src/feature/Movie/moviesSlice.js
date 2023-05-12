@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { initial } from "lodash";
 
 export const moviesSlice = createSlice({
   name: "movies",
@@ -7,7 +8,7 @@ export const moviesSlice = createSlice({
     genres: [],
     totalResults: 0,
     totalPages: 500,
-    status: null,
+    status: "initial",
   },
   reducers: {
     fetchMovies: (state) => {
