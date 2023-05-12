@@ -75,7 +75,7 @@ export const BackdropImage = styled.img`
 export const BackdropBox = styled.div`
   position: absolute;
   left: 2%;
-  bottom: 8%;
+  bottom: 40px;
   z-index: 3;
   color: ${({ theme }) => theme.color.white};
 
@@ -85,12 +85,16 @@ export const BackdropBox = styled.div`
 `;
 
 export const RatingWrapper = styled.div`
-  display: block;
+display: block;
+margin-bottom: 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+@media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     display: flex;
-  }
-`;
+    margin-bottom: 2px;
+}
+`
+
+
 
 export const BackdropTitle = styled.h1`
   font-size: 64px;
@@ -155,10 +159,12 @@ export const RateOn = styled.span`
 export const Votes = styled.span`
   font-size: 15px;
   line-height: 19px;
+  vertical-align: middle;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 10px;
     margin-left: 8px;
+    margin-bottom: 8px;
   }
 `;
 
