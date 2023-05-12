@@ -1,5 +1,3 @@
-import { Container } from "../../../../../core/components/Container";
-import { Rating } from "../../../../../core/components/Rating";
 import { posterImage } from "./posterURL";
 import {
   Date,
@@ -10,12 +8,18 @@ import {
   Info,
   MovieContainer,
   MovieTitle,
+  MovieWrapper,
   PosterCover,
   PosterImage,
   Production,
-  ProductionBox,
-  ReleaseBox,
+  InfoBox,
+  RatingWrapper,
   Year,
+  RatingBox,
+  Icon,
+  Rate,
+  RateOn,
+  Votes,
 } from "./styled";
 
 export const MovieDetails = ({
@@ -29,7 +33,7 @@ export const MovieDetails = ({
   details,
 }) => {
   return (
-    <Container>
+    <MovieWrapper>
       <MovieContainer>
         {poster_path ? (
           <PosterImage src={`${posterImage}${poster_path}`} alt={`${title}`} />
@@ -40,17 +44,16 @@ export const MovieDetails = ({
           <MovieTitle>{title}</MovieTitle>
           {release && <Year>{release.slice(0, 4)}</Year>}
           {production && (
-            <ProductionBox>
+            <InfoBox>
               <Info>Production:</Info>
-              {production.map(({ name }) => name).join(", ")}
-              <Production></Production>
-            </ProductionBox>
+              <Production>{production.map(({ name }) => name).join(", ")}</Production>
+            </InfoBox>
           )}
           {release && (
-            <ReleaseBox>
+            <InfoBox>
               <Info>Release date:</Info>
               <Date>{release.toString().replaceAll("-", ".")}</Date>
-            </ReleaseBox>
+            </InfoBox>
           )}
           {genres && (
             <GenreBox>
@@ -59,10 +62,15 @@ export const MovieDetails = ({
               ))}
             </GenreBox>
           )}
-          <Rating rate={rate} votes={votes}/>
-          <Description>{details}</Description>
+          <RatingWrapper><RatingBox>
+            <Icon />
+            <Rate>{rate.toFixed(1).replace(".", ",")}</Rate>
+            <RateOn>/ 10</RateOn>
+          </RatingBox>
+          <Votes>{votes} votes</Votes></RatingWrapper>
         </DetailsBox>
+        <Description>{details}</Description>
       </MovieContainer>
-    </Container>
+    </MovieWrapper>
   );
 };
