@@ -4,9 +4,14 @@ import {
   BackdropImage,
   BackdropTitle,
   BackdropWrapper,
+  Icon,
+  Rate,
+  RateOn,
+  RatingBox,
+  RatingWrapper,
+  Votes,
 } from "./styled";
 import { backdropImage } from "./backdropURL";
-import { Rating } from "../../../../../core/components/Rating";
 
 export const Backdrop = ({ backdrop_path, title, rate, votes }) => {
   return (
@@ -18,7 +23,12 @@ export const Backdrop = ({ backdrop_path, title, rate, votes }) => {
         />
         <BackdropBox>
           <BackdropTitle>{title}</BackdropTitle>
-          <Rating rate={rate} votes={votes}/>
+          <RatingWrapper><RatingBox>
+            <Icon />
+            <Rate>{rate.toFixed(1).replace(".", ",")}</Rate>
+            <RateOn>/ 10</RateOn>
+          </RatingBox>
+          <Votes>{votes} votes</Votes></RatingWrapper>
         </BackdropBox>
       </BackdropContainer>
     </BackdropWrapper>
