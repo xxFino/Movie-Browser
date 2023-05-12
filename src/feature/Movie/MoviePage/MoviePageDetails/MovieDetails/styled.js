@@ -230,6 +230,10 @@ export const RatingBox = styled.div`
     margin-bottom: 8px;
     display: flex;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.min}) {
+    margin-bottom: 0;
+  }
 `;
 
 export const Rate = styled.span`
@@ -247,6 +251,10 @@ export const Rate = styled.span`
     font-size: 13px;
     line-height: 17px;
     margin: 4px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.min}) {
+    margin-bottom: 0;
   }
 `;
 
@@ -269,6 +277,11 @@ export const Votes = styled.span`
     font-size: 13px;
     margin-bottom: 8px;
     color: ${({ theme }) => theme.color.waterloo};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.min}) {
+    margin-bottom: 0;
+    margin-top: 4px;
   }
 `;
 
@@ -304,6 +317,6 @@ export const Description = styled.p`
     grid-column: span 2;
     font-size: 14px;
     line-height: 22px;
-    margin: 23px 16px 16px 16px;
+    margin: 16px;
   }
 `;
