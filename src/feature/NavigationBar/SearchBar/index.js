@@ -21,7 +21,12 @@ export const SearchBar = () => {
   }, [debouncedSearchValue, history, location.pathname]);
 
   useEffect(() => {
-    setSearchValue("");
+    if (location.pathname === "/movies" || location.pathname === "/people") {
+      setSearchValue("");
+      const searchParams = new URLSearchParams(location.search);
+      searchParams.delete(searchQueryParamName);
+      history.replace({ search: searchParams.toString() });
+    }
   }, [location.pathname]);
 
   const onInputChange = ({ target }) => {

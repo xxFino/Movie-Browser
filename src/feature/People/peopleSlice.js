@@ -16,27 +16,33 @@ export const peopleSlice = createSlice({
     fetchPeopleSuccess: (state, { payload }) => {
       state.people = payload.people;
       state.status = "success";
-      state.totalPages = payload.totalPages;
-      state.totalResults = payload.totalResults;
+
+      if (payload.isQueryData) {
+        state.totalResults = payload.totalResults;
+      }
       if (payload.totalResults === 0) {
         state.status = "noResults";
       } else {
         state.status = "success";
       }
-      if (payload.totalPages > 500) {
-        state.totalPages = 500;
-      } else {
-        state.totalPages = payload.totalPages;
+      if (payload.isQueryTotalPages) {
+        state.totalPages = payload.totalPages > 500 ? 500 : payload.totalPages;
       }
     },
     fetchPeopleError: (state) => {
       state.people = null;
       state.status = "error";
     },
+    clearPeople: (state) => {
+      state.people = [];
+      state.totalResults = 0;
+      state.totalPages = 500;
+      state.status = "initial";
+    },
   },
 });
 
-export const { fetchPeopleError, fetchPeople, fetchPeopleSuccess, setPage } =
+export const { fetchPeopleError, fetchPeople, fetchPeopleSuccess, clearPeople} =
   peopleSlice.actions;
 export const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;

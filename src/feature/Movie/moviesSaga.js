@@ -1,4 +1,9 @@
-import { call, put, takeLatest, all, delay } from "redux-saga/effects";
+import {
+  call,
+  put,
+  all,
+  debounce,
+} from "redux-saga/effects";
 import { getPopularData, getGenres, getQueryData } from "../../core/getData";
 import {
   fetchMoviesError,
@@ -7,23 +12,28 @@ import {
   fetchGenres,
 } from "./moviesSlice";
 
-function* fetchMoviesHandler({ payload}) {
+function* fetchMoviesHandler({ payload }) {
   try {
-    const page=payload.page;
-    const query=payload.query
+    const page = payload.page;
+    const query = payload.query;
     const [movies, genres] = yield all([
       call(getPopularData, "movie", page),
       call(getQueryData, "movie", page, query),
       call(getGenres),
     ]);
-    yield put(fetchMoviesSuccess(movies));
+    yield put(
+      fetchMoviesSuccess({
+        movies: movies.movies,
+        totalResults: movies.totalResults,
+        totalPages:movies.totalPages,
+      })
+    );
     yield put(fetchGenres(genres));
   } catch (error) {
-    yield delay(500);
     yield put(fetchMoviesError());
   }
 }
 
 export function* moviesSaga() {
-  yield takeLatest(fetchMovies.type, fetchMoviesHandler);
+  yield debounce(500, fetchMovies.type, fetchMoviesHandler);
 }

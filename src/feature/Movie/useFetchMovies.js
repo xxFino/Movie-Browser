@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { fetchMovies, fetchMoviesSuccess } from "./moviesSlice";
+import { clearMovies, fetchMovies, fetchMoviesSuccess } from "./moviesSlice";
 import { getQueryData } from "../../core/getData";
 
 export const useFetchMovies = ({ dispatch, query, page, setSearchResults }) => {
@@ -12,12 +12,14 @@ export const useFetchMovies = ({ dispatch, query, page, setSearchResults }) => {
             movies: response.results,
             totalPages: response.total_pages,
             totalResults: response.total_results,
+            isQueryData: true,
+            isQueryTotalPages: true,
           })
         );
       });
     } else {
+      dispatch(clearMovies());
       dispatch(fetchMovies({ page }));
     }
-    
   }, [dispatch, query, page, setSearchResults]);
 };

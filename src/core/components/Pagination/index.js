@@ -16,7 +16,7 @@ export const Pagination = ({ page, onPageChange, query, totalPages }) => {
     const searchParams = new URLSearchParams(history.location.search);
     searchParams.set("page", newPage);
     history.push(`${history.location.pathname}?${searchParams.toString()}`);
-    onPageChange(newPage, query);
+    onPageChange(newPage);
   };
 
   const goToPrev = () => goToPage(page - 1, query);
