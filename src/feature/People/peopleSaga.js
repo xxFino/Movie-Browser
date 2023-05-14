@@ -1,4 +1,9 @@
-import { all, call, delay, put, takeLatest } from "redux-saga/effects";
+import {
+  all,
+  call,
+  debounce,
+  put,
+} from "redux-saga/effects";
 import { getPopularData, getQueryData } from "../../core/getData";
 import {
   fetchPeople,
@@ -6,21 +11,26 @@ import {
   fetchPeopleSuccess,
 } from "./peopleSlice";
 
-function* fetchPeopleHandler({ payload}) {
+function* fetchPeopleHandler({ payload }) {
   try {
-    const page=payload.page;
-    const query=payload.query
+    const page = payload.page;
+    const query = payload.query;
     const [people] = yield all([
       call(getPopularData, "person", page),
       call(getQueryData, "person", page, query),
     ]);
-    yield put(fetchPeopleSuccess(people));
+    yield put(
+      fetchPeopleSuccess({
+        people: people.people,
+        totalResults: people.totalResults,
+        totalPages:people.totalPages,
+      })
+    );
   } catch (error) {
-    yield delay(500);
     yield put(fetchPeopleError());
   }
 }
 
 export function* peopleSaga() {
-  yield takeLatest(fetchPeople.type, fetchPeopleHandler);
+  yield debounce(500, fetchPeople.type, fetchPeopleHandler);
 }
