@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { getQueryData } from "../../core/getData";
-import { fetchPeople, fetchPeopleSuccess } from "./peopleSlice";
+import { clearPeople, fetchPeople, fetchPeopleSuccess } from "./peopleSlice";
 
 export const useFetchPeople = ({ dispatch, query, page, setSearchResults }) => {
   useEffect(() => {
@@ -12,10 +12,13 @@ export const useFetchPeople = ({ dispatch, query, page, setSearchResults }) => {
             people: response.results,
             totalPages: response.total_pages,
             totalResults: response.total_results,
+            isQueryData: true,
+            isQueryTotalPages: true,
           })
         );
       });
     } else {
+      dispatch(clearPeople());
       dispatch(fetchPeople({ page }));
     }
   }, [dispatch, query, page, setSearchResults]);

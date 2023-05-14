@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { initial } from "lodash";
 
 export const moviesSlice = createSlice({
   name: "movies",
@@ -7,7 +6,7 @@ export const moviesSlice = createSlice({
     movies: [],
     genres: [],
     totalResults: 0,
-    totalPages: 0,
+    totalPages: 500,
     status: "initial",
   },
   reducers: {
@@ -17,19 +16,19 @@ export const moviesSlice = createSlice({
     fetchMoviesSuccess: (state, { payload }) => {
       state.movies = payload.movies;
       state.status = "success";
-      state.totalPages = payload.totalPages;
-      state.totalResults = payload.totalResults;
 
+      if (payload.isQueryData) {
+        state.totalResults = payload.totalResults;
+      }
       if (payload.totalResults === 0) {
         state.status = "noResults";
       } else {
         state.status = "success";
       }
-      if (payload.totalPages > 500) {
-        state.totalPages = 500;
-      } else {
-        state.totalPages = payload.totalPages;
+      if (payload.isQueryTotalPages) {
+        state.totalPages = payload.totalPages > 500 ? 500 : payload.totalPages;
       }
+
     },
 
     fetchMoviesError: (state) => {
@@ -39,6 +38,13 @@ export const moviesSlice = createSlice({
     fetchGenres: (state, action) => {
       state.genres = action.payload.genres;
     },
+    clearMovies: (state) => {
+      state.movies = [];
+      state.genres = [];
+      state.totalResults = 0;
+      state.totalPages = 500;
+      state.status = "initial";
+    },
   },
 });
 
@@ -47,7 +53,7 @@ export const {
   fetchMovies,
   fetchMoviesSuccess,
   fetchGenres,
-  setPage,
+  clearMovies,
 } = moviesSlice.actions;
 
 export const selectMoviesState = (state) => state.movies;
