@@ -79,7 +79,7 @@ export const InfoLabel = styled.span`
     font-size: 18px;
     line-height: 1.2;
     margin-right: 10px;
-    color: ${({theme}) => theme.color.stormGray};
+    color: ${({theme}) => theme.color.stormGrey};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
         display: none;
@@ -102,7 +102,7 @@ export const InfoText = styled.span`
 export const Description = styled.p`
     font-size: 20px;
     line-height: 1.6;
-    margin: 40px 0 0 0;
+    margin: 24px 0 0 0;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
         font-size: 14px;
