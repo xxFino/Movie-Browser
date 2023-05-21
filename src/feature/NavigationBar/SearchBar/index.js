@@ -9,6 +9,9 @@ export const SearchBar = () => {
   const history = useHistory();
   const [searchValue, setSearchValue] = useState("");
   const debouncedSearchValue = useDebounce(searchValue, 500);
+  const [currentPage, setCurrentPage] = useState(
+    location.pathname.includes("people") ? "people" : "movie"
+  );
 
   useEffect(() => {
     if (debouncedSearchValue.trim() === "") {
@@ -21,12 +24,8 @@ export const SearchBar = () => {
   }, [debouncedSearchValue, history, location.pathname]);
 
   useEffect(() => {
-    if (location.pathname === "/movies" || location.pathname === "/people") {
-      setSearchValue("");
-      const searchParams = new URLSearchParams(location.search);
-      searchParams.delete(searchQueryParamName);
-      history.replace({ search: searchParams.toString() });
-    }
+    setSearchValue("");
+    setCurrentPage(location.pathname.includes("people") ? "people" : "movie");
   }, [location.pathname]);
 
   const onInputChange = ({ target }) => {
@@ -37,8 +36,7 @@ export const SearchBar = () => {
       <StyledSearchIcon />
       <SearchInput
         placeholder={
-          location.pathname.includes("people") ||
-          location.pathname.includes("person")
+          currentPage === "people"
             ? "Search for people..."
             : "Search for movies..."
         }

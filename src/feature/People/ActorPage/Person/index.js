@@ -12,7 +12,7 @@ import {
     InfoWrapper,
 } from "./styled";
 
-import poster from "../../../../core/images/noPoster.svg";
+import poster from "../../PeopleTile/poster.png";
 
 export const PersonInfo = ({ poster_path, title, birthday, place, description }) => (
 

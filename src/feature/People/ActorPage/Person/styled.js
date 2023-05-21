@@ -2,55 +2,75 @@ import styled from "styled-components";
 
 export const TileWrapper = styled.div`
     display: flex;
-    justify-content: center;
-    margin: 64px auto;
+  justify-content: center;
+  margin: 64px auto;
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-        margin-top: 16px;
-        margin-bottom: 21px;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoint.max}) {
+    margin: 64px 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
+    margin: 40px 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
 `;
 
 export const TileContainer = styled.div`
-    max-width: 1368px;
-    margin: 16px;
-    padding: 40px;
-    background: ${({theme}) => theme.color.white};
-    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 0 40px;
-    border-radius: 5px;
+     display: grid;
+  grid-template-columns: 1fr 3fr;
+  max-width: 1368px;
+  box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
+  background-color: ${({ theme }) => theme.color.white};
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-        grid-template-columns: 1fr 2fr;
-        grid-gap: 0 16px;
-        margin: 16px;
-        padding: 16px;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    margin-bottom: 21px;
+  }
 `;
 
 export const Image = styled.img`    
-    width: 100%;
-    border-radius: 5px;
-    height: auto;
-    grid-row: span 2;
+   max-width: 312px;
+  max-height: 464px;
+  width: 30vw;
+  margin: 40px;
+  border-radius: 5px;
+  grid-row: span 2;
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-        width: 114px;
-        height: auto;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
+    margin: 28px;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    margin: 16px;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: ${({theme}) => theme.breakpoint.min}) {
+    width: 114px;
+    height: auto;
+  }
 `;
 
 export const Content = styled.div`
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+     display: flex;
+  flex-direction: column;
+  margin: 48px 40px 0 0;
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-        gap: 8px;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
+    margin: 28px 28px 0 0;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    margin-top: 16px;
+  }
 `;
 
 export const Title = styled.header`
