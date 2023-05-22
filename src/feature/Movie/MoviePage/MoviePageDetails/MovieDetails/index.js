@@ -6,9 +6,9 @@ import {
   Genre,
   GenreBox,
   Info,
-  MovieContainer,
-  MovieTitle,
-  MovieWrapper,
+  Container,
+  Title,
+  Wrapper,
   PosterCover,
   PosterImage,
   Production,
@@ -33,15 +33,15 @@ export const MovieDetails = ({
   details,
 }) => {
   return (
-    <MovieWrapper>
-      <MovieContainer>
+    <Wrapper>
+      <Container>
         {poster_path ? (
           <PosterImage src={`${posterImage}${poster_path}`} alt={`${title}`} />
         ) : (
           <PosterCover />
         )}
         <DetailsBox>
-          <MovieTitle>{title}</MovieTitle>
+          <Title>{title}</Title>
           {release && <Year>{release.slice(0, 4)}</Year>}
           {production && (
             <InfoBox>
@@ -70,7 +70,7 @@ export const MovieDetails = ({
           <Votes>{votes} votes</Votes></RatingWrapper>
         </DetailsBox>
         <Description>{details}</Description>
-      </MovieContainer>
-    </MovieWrapper>
+      </Container>
+    </Wrapper>
   );
 };
