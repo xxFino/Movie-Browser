@@ -5,7 +5,6 @@ import { Loading } from "../../Content/Loading";
 import { Error } from "../../Content/Error";
 import {
   fetchMoviePage,
-  selectMoviePageDetails,
   selectMoviePageStatus,
   setMoviePageId,
 } from "./moviePageSlice";
