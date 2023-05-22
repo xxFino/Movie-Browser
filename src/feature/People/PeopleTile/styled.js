@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 export const Tile = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: ${({ theme }) => theme.color.black};
   display: flex;
   flex-direction: column;
-  background-color: rgb(255, 255, 255);
+  background-color:${({ theme }) => theme.color.white};
+
   box-shadow: rgba(186, 199, 213, 0.5) 0px 4px 12px;
   height: 100%;
   border-radius: 5px;
@@ -19,10 +20,10 @@ export const Tile = styled(Link)`
     transform: scale(1.03);
     cursor: pointer;
   }
-  @media (max-width: 1040px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
     padding: 12px;
   }
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     padding: 8px;
   }
 `;
@@ -41,7 +42,7 @@ export const Title = styled.p`
 
   line-height: 1.3;
   text-align: center;
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 14px;
     margin-top: 8px;
     margin-bottom: 30px;

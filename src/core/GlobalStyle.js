@@ -14,6 +14,7 @@ html {
 body {
    font-family: 'Poppins', sans-serif;
    font-style:normal;
-   background-color:#F5F5FA ;
+   background-color: ${({ theme }) => theme.color.whisper};
+;
 }
 `;

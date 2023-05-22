@@ -11,22 +11,22 @@ export const Wrapper = styled.div`
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 100px;
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     gap: 8px;
     margin-top: 30px;
     margin-bottom: 30px;
   }
 `;
 export const LeftArrow = styled(Left)`
-  color: #0044cc;
-  @media (max-width: 778px) {
+    color: ${({ theme }) => theme.color.scienceBlue};
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     width: 5px;
     height: 8px;
   }
 `;
 export const RightArrow = styled(Right)`
-  color: #0044cc;
-  @media (max-width: 778px) {
+    color: ${({ theme }) => theme.color.scienceBlue};
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     width: 5px;
     height: 8px;
   }
@@ -36,7 +36,8 @@ export const Button = styled.button`
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  background-color: #d6e4ff;
+  background-color: ${({ theme }) => theme.color.pattensBlue};
+
   border: none;
   border-radius: 5px;
   padding: 8px 16px;
@@ -45,12 +46,12 @@ export const Button = styled.button`
     opacity: 0.85;
   }
   &:disabled {
-    background-color: #e4e6f0;
-    color: #18181b;
+    background-color: ${({ theme }) => theme.color.mystic};
+    color: ${({ theme }) => theme.color.woodsmoke};
     cursor: auto;
     opacity: 1;
   }
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     padding: 7.5px 12px;
     gap: 4px;
   }
@@ -59,18 +60,18 @@ export const Button = styled.button`
   }
   &:disabled ${LeftArrow} {
     transform: none;
-    color: #7e839a;
+    color: ${({ theme }) => theme.color.waterloo};
   }
   &:hover ${RightArrow} {
     transform: translateX(2px);
   }
   &:disabled ${RightArrow} {
     transform: none;
-    color: #7e839a;
+    color: ${({ theme }) => theme.color.waterloo};
   }
 `;
 export const ButtonText = styled.span`
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     display: none;
   }
 `;
@@ -80,7 +81,7 @@ export const Frame = styled.div`
   display: flex;
   flex-wrap: nowrap;
   gap: 8px;
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     gap: 2px;
     margin-left: 4px;
     margin-right: 4px;

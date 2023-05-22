@@ -40,7 +40,6 @@ export const Button = styled(Link)`
     font-size: 14px;
     line-height: 19px;
     background: #0044CC;
-    color: white;
-    text-decoration: none;
+   color: ${({ theme }) => theme.color.white};    text-decoration: none;
     padding: 16px 24px;
 `;
