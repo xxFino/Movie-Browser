@@ -9,23 +9,25 @@ export const SearchBar = () => {
   const history = useHistory();
   const [searchValue, setSearchValue] = useState("");
   const debouncedSearchValue = useDebounce(searchValue, 500);
-  const [currentPage, setCurrentPage] = useState(
-    location.pathname.includes("people") ? "people" : "movie"
-  );
+  const currentPage = location.pathname.includes("people")
+    ? "people"
+    : "movies";
 
   useEffect(() => {
     if (debouncedSearchValue.trim() === "") {
-      history.push(`${location.pathname}`);
+      if (location.search !== "") {
+        const newPath = location.pathname.replace(/\d+$/, "");
+        history.replace(newPath);
+      }
     } else {
       history.push(
         `${location.pathname}?${searchQueryParamName}=${debouncedSearchValue}`
       );
     }
-  }, [debouncedSearchValue, history, location.pathname]);
+  }, [debouncedSearchValue]);
 
   useEffect(() => {
     setSearchValue("");
-    setCurrentPage(location.pathname.includes("people") ? "people" : "movie");
   }, [location.pathname]);
 
   const onInputChange = ({ target }) => {
