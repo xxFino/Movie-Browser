@@ -1,10 +1,22 @@
 # Movie Browser
 
+## Description
+The movies browser application was created as a final project in the course from Youcode. The app is used to browse and search for movies, actors, and film crew. 
+
 ## Demo 
 [Movie Browser](https://walmarek.github.io/Movie-Browser/)
 
-## Description
-The movies browser application was created as a final project in the course from Youcode. The app is used to browse and search for movies, actors, and film crew. 
+
+## Preview
+<p align="center">
+  <img src="https://github.com/walmarek/Movie-Browser/blob/main/public/movie-browser.gif?raw=true">
+</p>
+
+
+## Authors
+- [Mariola Filipiak](https://github.com/MariolaFilipiak)
+- [Bartłomiej Snochowski](https://github.com/xxFino)
+- [Marek Wal](https://github.com/walmarek)
 
 
 ## Api 
