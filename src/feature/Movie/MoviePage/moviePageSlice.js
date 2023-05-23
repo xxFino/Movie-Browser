@@ -51,7 +51,6 @@ export const selectMoviePageDetails = (state) =>
   selectMoviePageState(state).movieDetails;
 export const selectMoviePageCredits = (state) =>
   selectMoviePageState(state).movieCredits;
-
 export const selectMoviePageId = (state) => selectMoviePageState(state).movieId;
 
 export default moviePageSlice.reducer;

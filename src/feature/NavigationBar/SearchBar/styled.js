@@ -12,11 +12,11 @@ export const Form = styled.div`
   display: flex;
   justify-content: right;
 
-  @media (max-width: 1040px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
     margin: 12px;
     width: 40vw;
   }
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     height: 40px;
   }
 
@@ -44,12 +44,11 @@ export const SearchInput = styled.input`
     font-size: 16px;
     color: #7e839a;
 
-    @media (max-width: 776px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
       font-size: 14px;
       
     }
   }
-
   &:focus {
     outline: none;
   }

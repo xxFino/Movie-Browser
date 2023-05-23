@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as Cover } from "../../../MoviesList/Poster.svg";
 import { ReactComponent as Star } from "../../../../../core/icon/Vector.svg";
 
-export const MovieWrapper = styled.section`
+export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   margin: 64px auto;
@@ -21,7 +21,7 @@ export const MovieWrapper = styled.section`
   }
 `;
 
-export const MovieContainer = styled.div`
+export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   max-width: 1368px;
@@ -98,7 +98,7 @@ export const DetailsBox = styled.div`
   }
 `;
 
-export const MovieTitle = styled.h2`
+export const Title = styled.h2`
   font-size: 36px;
   line-height: 43px;
   font-weight: 600;

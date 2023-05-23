@@ -18,7 +18,7 @@ export const Title = styled.h1`
   margin: 0;
   padding: 0;
 
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 18px;
   }
   @media (max-width: 530px) {
@@ -30,7 +30,7 @@ export const StyledVideoIcon = styled(VideoIcon)`
   margin: 16px;
   padding: 0;
 
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin: 10px;
     max-width: 22px;
     max-height: 22px;
@@ -68,11 +68,11 @@ export const NavList = styled.ul`
   gap: 64px;
   align-items: center;
 
-  @media (max-width: 1040px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
     gap: 20px;
   }
 
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-top: 16px;
     margin-bottom: 16px;
   }
@@ -103,7 +103,7 @@ export const StyledNavLinkTitle = styled(NavLink)`
   &:active {
     color: ${({ theme }) => theme.color.white};
   }
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 13px;
   }
 `;

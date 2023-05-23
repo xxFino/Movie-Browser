@@ -1,5 +1,5 @@
-export const toMovie = (id) => `/movie/${id}`;
-export const toMovies = () => "/movies";
-export const toActor = (id) => `/person/${id}`;
-export const toPeople = () => "/people";
 
+export const toMovie = (id) => `/movies/${id}`;
+export const toMovies = () => "/movies";
+export const toActor = (id) => `/people/${id}`;
+export const toPeople = () => "/people";

@@ -5,7 +5,6 @@ import { Loading } from "../../Content/Loading";
 import { Error } from "../../Content/Error";
 import {
   fetchMoviePage,
-  selectMoviePageDetails,
   selectMoviePageStatus,
   setMoviePageId,
 } from "./moviePageSlice";
@@ -19,7 +18,6 @@ export const MoviePage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const status = useSelector(selectMoviePageStatus);
-  const moviesDetail = useSelector(selectMoviePageDetails);
   const [searchResults, setSearchResults] = useState([]);
   const location = useLocation();
   const query = new URLSearchParams(location.search || "").get(
@@ -39,7 +37,7 @@ export const MoviePage = () => {
         {query ? (
           <Movies movies={searchResults} />
         ) : (
-          <MoviePageDetails moviesPage={moviesDetail} />
+          <MoviePageDetails  />
         )}
       </>
     ),

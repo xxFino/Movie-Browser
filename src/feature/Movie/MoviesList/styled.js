@@ -7,13 +7,13 @@ export const Wrapper = styled.div`
   margin-top: 24px;
   margin: 0 auto;
 
-  @media (max-width: 1396px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.max}) {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  @media (max-width: 1040px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
     grid-template-columns: 1fr 1fr;
   }
-  @media (max-width: 778px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     grid-template-columns: 1fr;
     gap: 16px;
   }
